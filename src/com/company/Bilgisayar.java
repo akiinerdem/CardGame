@@ -1,12 +1,12 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Bilgisayar extends Oyuncu {
 
     // Parametresiz yapici
     public Bilgisayar() {
-        super();
         System.out.println("Bilgisayar nesne olusturuldu");
     }
 
@@ -17,5 +17,10 @@ public class Bilgisayar extends Oyuncu {
         super.Skor = skor;
         super.kartListesi = kartlar;
         System.out.println(oyuncuID + " ID nolu " + oyuncuAdi + " adli Bilgisayar");
+    }
+    public int KartSec(){
+        Random random = new Random();
+        // kartlistesinden rastgele eleman secilir
+        return kartListesi.get(random.nextInt(kartListesi.size()));
     }
 }
