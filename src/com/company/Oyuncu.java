@@ -11,7 +11,7 @@ public class Oyuncu {
 
     // Parametresiz yapici
     public Oyuncu() {
-        System.out.println("oyuncu nesne olusturuldu");
+        System.out.println("Oyuncu nesne olusturuldu");
     }
 
     // Parametreli yapici
