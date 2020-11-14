@@ -1,3 +1,7 @@
+// TODO: siniflari olustur
+//  Akin:   Sporcu, Futbolcu ve Basketbolcu siniflarini yaz
+//  Ali:    Oyuncu, Bilgisayar ve Kullanici siniflarini yaz
+
 package com.company;
 
 public class Main {
