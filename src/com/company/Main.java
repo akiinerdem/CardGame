@@ -3,6 +3,7 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+	// lkdsjfkldsjkfl
+        System.out.println("deneme 1 2 3");
     }
 }
