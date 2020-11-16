@@ -6,6 +6,7 @@ public class LionelMessi extends Sporcu {
     private int  kaleciKarsiKarsiya;
     private boolean kartKullanildiMi = false;
 
+
     public LionelMessi(String sporcuIsim, String sporcuTakim, int penalti, int serbestAtis, int kaleciKarsiKarsiya) {
         super(sporcuIsim, sporcuTakim);
         this.penalti = penalti;
