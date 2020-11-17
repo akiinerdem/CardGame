@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Kullanici extends Oyuncu {
-    // Parametresiz yapici
-    public Kullanici() {
+    // Parametresiz yapilandirici
+    Kullanici() {
         System.out.println("Kullanici nesne olusturuldu");
     }
 
-    // Parametreli yapici
-    public void BilinenKullanici(int ID, String adi, int skor, ArrayList<Integer> kartlar) {
+    // Parametreli yapilandirici
+    Kullanici(int ID, String adi, int skor, ArrayList<Integer> kartlar) {
         super.oyuncuID = ID;
         super.oyuncuAdi = adi;
         super.Skor = skor;
         super.kartListesi = kartlar;
-        System.out.println(oyuncuID + " ID nolu " + oyuncuAdi + " adli Kullanici");
+        System.out.println(oyuncuID + " ID nolu " + oyuncuAdi + " adli Kullanici nesne olusturuldu");
     }
     public int KartSec(){
         // TODO: arayuz bitince, arayuzle calisacak sekilde yaz

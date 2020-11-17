@@ -9,18 +9,18 @@ public class Oyuncu {
     // TODO: sporcu tipinden ArrayList olarak belirle
     ArrayList<Integer> kartListesi;
 
-    // Parametresiz yapici
-    public Oyuncu() {
+    // Parametresiz yapilandirici
+    Oyuncu() {
         System.out.println("Oyuncu nesne olusturuldu");
     }
 
-    // Parametreli yapici
-    public void BilinenOyuncu(int ID, String adi, int skor, ArrayList<Integer> kartlar) {
+    // Parametreli yapilandirici
+    Oyuncu(int ID, String adi, int skor, ArrayList<Integer> kartlar) {
         this.oyuncuID = ID;
         this.oyuncuAdi = adi;
         this.Skor = skor;
         this.kartListesi = kartlar;
-        System.out.println(oyuncuID + " ID nolu" + oyuncuAdi + " adli oyuncu nesne olusturuldu");
+        System.out.println(oyuncuID + " ID nolu" + oyuncuAdi + " adli Oyuncu nesne olusturuldu");
     }
 
     public int SkorGoster() {
