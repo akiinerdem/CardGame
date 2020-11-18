@@ -7,13 +7,13 @@ public class Kullanici extends Oyuncu {
     // Parametresiz yapilandirici
     Kullanici() {
         super();
-        System.out.println("Kullanici nesne olusturuldu");
+        System.out.println("Kullanici sinif yapilandiricisi cagirildi");
     }
 
     // Parametreli yapilandirici
     Kullanici(int OyuncuID, String OyuncuAdi, int skor, ArrayList<Integer> kartListesi) {
         super(OyuncuID, OyuncuAdi, skor, kartListesi);
-        System.out.println("Kullanici nesne olusturuldu");
+        System.out.println("Kullanici sinif parametreli yapilandiricisi cagirildi");
     }
     @Override
     public int KartSec(){

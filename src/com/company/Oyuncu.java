@@ -14,7 +14,7 @@ public abstract class Oyuncu {
 
     // Parametresiz yapilandirici
     Oyuncu() {
-        System.out.println("Oyuncu nesne olusturuldu");
+        System.out.println("Oyuncu sinif yapilandiricisi cagirildi");
     }
 
     // Parametreli yapilandirici
@@ -23,7 +23,7 @@ public abstract class Oyuncu {
         setOyuncuAdi(OyuncuAdi);
         setSkor(skor);
         setKartListesi(kartListesi);
-        System.out.println(oyuncuID + " ID nolu " + oyuncuAdi + " adli Oyuncu nesne olusturuldu");
+        System.out.println(oyuncuID + " ID nolu " + oyuncuAdi + " adli Oyuncu nesne yapilandirildi");
     }
 
     // TODO: sporcu sinif olusturulunca,

@@ -8,13 +8,13 @@ public class Bilgisayar extends Oyuncu {
     // Parametresiz yapilandirici
     Bilgisayar() {
         super();
-        System.out.println("Bilgisayar nesne olusturuldu");
+        System.out.println("Bilgisayar sinif yapilandiricisi cagirildi");
     }
 
     // Parametreli yapilandirici
     Bilgisayar(int OyuncuID, String OyuncuAdi, int skor, ArrayList<Integer> kartListesi) {
         super(OyuncuID, OyuncuAdi, skor, kartListesi);
-        System.out.println("Bilgisayar nesne olusturuldu");
+        System.out.println("Bilgisayar sinif parametreli yapilandiricisi cagirildi");
     }
     @Override
     public int KartSec(){
