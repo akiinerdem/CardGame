@@ -17,9 +17,12 @@ public class Main {
         ArrayList<Integer> kartlar = new ArrayList<>();
         kartlar.add(2);
         kartlar.add(5);
-        System.out.println("deneme 1 2 3");
+        System.out.println("vvvvvvvvvvvvv-Bilgisayar sinif denemesi-vvvvvvvvvvvvv");
+        System.out.println("Parametreli yapilandirmak:");
         Bilgisayar lenovo = new Bilgisayar(52, "Lenovo G50", 24, kartlar);
         System.out.println(lenovo.getOyuncuID() + ". " + lenovo.getOyuncuAdi() + " " + lenovo.getSkor() + " puan");
-        System.out.println();
+        System.out.println("Parametresiz yapilandirmak:");
+        Bilgisayar dell = new Bilgisayar();
+        System.out.println("^^^^^^^^^^^^^-Bilgisayar sinif denemesi-^^^^^^^^^^^^^");
     }
 }
