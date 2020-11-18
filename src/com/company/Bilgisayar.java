@@ -1,6 +1,5 @@
 package com.company;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -8,6 +7,7 @@ public class Bilgisayar extends Oyuncu {
 
     // Parametresiz yapilandirici
     Bilgisayar() {
+        super();
         System.out.println("Bilgisayar nesne olusturuldu");
     }
 
@@ -16,6 +16,7 @@ public class Bilgisayar extends Oyuncu {
         super(OyuncuID, OyuncuAdi, skor, kartListesi);
         System.out.println(getOyuncuID() + " ID nolu " + getOyuncuAdi() + " adli Bilgisayar nesne olusturuldu");
     }
+    @Override
     public int KartSec(){
         Random random = new Random();
         // kartlistesinden rastgele eleman secilir

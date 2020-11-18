@@ -2,7 +2,10 @@ package com.company;
 
 import java.util.ArrayList;
 
-public class Oyuncu {
+// Sade oyuncu class olusturulamamasi icin abstract class olarak tanimlandi.
+// Abstract olunca sadece inherit edilebilir. Sadece futbolcu ve basketbolcu
+// nesneler olacagi icin boyle tanimlandi.
+public abstract class Oyuncu {
     private int oyuncuID;
     private String oyuncuAdi;
     private int skor;
@@ -25,9 +28,8 @@ public class Oyuncu {
 
     // TODO: sporcu sinif olusturulunca,
     //  bu fonksiyon sporcu sinifindan obje dondursun, int degil
-    public int KartSec() {
-        return 0;
-    }
+    public abstract int KartSec();
+
     public int getOyuncuID() {
         return oyuncuID;
     }

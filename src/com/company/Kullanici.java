@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Kullanici extends Oyuncu {
     // Parametresiz yapilandirici
     Kullanici() {
+        super();
         System.out.println("Kullanici nesne olusturuldu");
     }
 
@@ -14,6 +15,7 @@ public class Kullanici extends Oyuncu {
         super(OyuncuID, OyuncuAdi, skor, kartListesi);
         System.out.println(getOyuncuID() + " ID nolu " + getOyuncuAdi() + " adli Kullanici nesne olusturuldu");
     }
+    @Override
     public int KartSec(){
         // TODO: arayuz bitince, arayuzle calisacak sekilde yaz
         System.out.println("oynamak istedigin kartin indisini yaz: ");
