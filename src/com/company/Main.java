@@ -19,7 +19,7 @@ public class Main {
         kartlar.add(5);
         System.out.println("deneme 1 2 3");
         Bilgisayar lenovo = new Bilgisayar(52, "Lenovo G50", 24, kartlar);
-        System.out.println(lenovo.oyuncuID + ". " + lenovo.oyuncuAdi + " " + lenovo.Skor + " puan");
+        System.out.println(lenovo.getOyuncuID() + ". " + lenovo.getOyuncuAdi() + " " + lenovo.getSkor() + " puan");
         System.out.println();
     }
 }

@@ -3,11 +3,11 @@ package com.company;
 import java.util.ArrayList;
 
 public class Oyuncu {
-    int oyuncuID;
-    String oyuncuAdi;
-    int Skor;
+    private int oyuncuID;
+    private String oyuncuAdi;
+    private int skor;
     // TODO: sporcu tipinden ArrayList olarak belirle
-    ArrayList<Integer> kartListesi;
+    private ArrayList<Integer> kartListesi;
 
     // Parametresiz yapilandirici
     Oyuncu() {
@@ -15,16 +15,12 @@ public class Oyuncu {
     }
 
     // Parametreli yapilandirici
-    Oyuncu(int ID, String adi, int skor, ArrayList<Integer> kartlar) {
-        this.oyuncuID = ID;
-        this.oyuncuAdi = adi;
-        this.Skor = skor;
-        this.kartListesi = kartlar;
+    Oyuncu(int OyuncuID, String OyuncuAdi, int skor, ArrayList<Integer> kartListesi) {
+        setOyuncuID(OyuncuID);
+        setOyuncuAdi(OyuncuAdi);
+        setSkor(skor);
+        setKartListesi(kartListesi);
         System.out.println(oyuncuID + " ID nolu" + oyuncuAdi + " adli Oyuncu nesne olusturuldu");
-    }
-
-    public int SkorGoster() {
-        return Skor;
     }
 
     // TODO: sporcu sinif olusturulunca,
@@ -32,5 +28,35 @@ public class Oyuncu {
     public int KartSec() {
         return 0;
     }
+    public int getOyuncuID() {
+        return oyuncuID;
+    }
 
+    public void setOyuncuID(int oyuncuID) {
+        this.oyuncuID = oyuncuID;
+    }
+
+    public String getOyuncuAdi() {
+        return oyuncuAdi;
+    }
+
+    public void setOyuncuAdi(String oyuncuAdi) {
+        this.oyuncuAdi = oyuncuAdi;
+    }
+
+    public int getSkor() {
+        return skor;
+    }
+
+    public void setSkor(int skor) {
+        this.skor = skor;
+    }
+
+    public ArrayList<Integer> getKartListesi() {
+        return kartListesi;
+    }
+
+    public void setKartListesi(ArrayList<Integer> kartListesi) {
+        this.kartListesi = kartListesi;
+    }
 }
