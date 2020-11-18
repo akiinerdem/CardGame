@@ -23,7 +23,7 @@ public abstract class Oyuncu {
         setOyuncuAdi(OyuncuAdi);
         setSkor(skor);
         setKartListesi(kartListesi);
-        System.out.println(oyuncuID + " ID nolu" + oyuncuAdi + " adli Oyuncu nesne olusturuldu");
+        System.out.println(oyuncuID + " ID nolu " + oyuncuAdi + " adli Oyuncu nesne olusturuldu");
     }
 
     // TODO: sporcu sinif olusturulunca,
