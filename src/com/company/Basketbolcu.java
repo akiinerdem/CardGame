@@ -1,6 +1,6 @@
 package com.company;
 
-public class Basketbolcu {
+public class Basketbolcu extends Sporcu {
 
     private String basketbolcuTakim;
     private String basketbolcuIsim;
@@ -35,13 +35,13 @@ public class Basketbolcu {
     Basketbolcu KevinDurant = new Basketbolcu();
     Basketbolcu JamesHarden = new Basketbolcu();
 
+
+
+
+
     public int getUcluk() {
         return ucluk;
     }
-
-
-
-
 
     public void setUcluk(int ucluk) {
         this.ucluk = ucluk;
