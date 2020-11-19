@@ -11,7 +11,7 @@ public class Basketbolcu extends Sporcu {
 
 
     public Basketbolcu(){
-
+        System.out.println("Basketbolccu olusturuldu");
     }
 
     public Basketbolcu(int serbestAtis,int ucluk, int ikilik,String basketbolcuIsim, String basketbolcuTakim) {
@@ -25,15 +25,19 @@ public class Basketbolcu extends Sporcu {
     public Basketbolcu(String sporcuTakim,String sporcuIsim) {
      super(sporcuTakim,sporcuIsim);
     }
+    @Override
+    public int[] sporcuPuaniGoster() {
+        return new int[]{serbestAtis,ikilik,ucluk};
+    }
 
-    Basketbolcu KobeBryant = new Basketbolcu();
+  /*  Basketbolcu KobeBryant = new Basketbolcu();
     Basketbolcu LebronJames = new Basketbolcu();
     Basketbolcu MichaelJordan = new Basketbolcu();
     Basketbolcu StephCurry = new Basketbolcu();
     Basketbolcu ShaquilleONeal = new Basketbolcu();
     Basketbolcu AnthonyDavis = new Basketbolcu();
     Basketbolcu KevinDurant = new Basketbolcu();
-    Basketbolcu JamesHarden = new Basketbolcu();
+    Basketbolcu JamesHarden = new Basketbolcu();*/
 
 
 

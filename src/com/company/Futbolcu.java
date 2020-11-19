@@ -8,10 +8,16 @@ public class Futbolcu extends Sporcu {
     private int kaleciKarsiKarsiya;
 
     public Futbolcu(){
-
+        System.out.println("futbolcu olusturuldu");
     }
 
-    public Futbolcu(String futbolcuAdi,String futbolcuTakim,int penalti,int serbestVurus,int kaleciKarsiKarsiya) {
+    @Override
+    public int[] sporcuPuaniGoster() {
+
+        return new int[]{penalti,serbestVurus,kaleciKarsiKarsiya};
+    }
+
+    public Futbolcu(String futbolcuAdi, String futbolcuTakim, int penalti, int serbestVurus, int kaleciKarsiKarsiya) {
         this.futbolcuAdi = futbolcuAdi;
         this.futbolcuTakim= futbolcuTakim;
         this.kaleciKarsiKarsiya=kaleciKarsiKarsiya;
@@ -23,14 +29,14 @@ public class Futbolcu extends Sporcu {
     }
 
 
-    Futbolcu LionelMessi= new Futbolcu();
+   /* Futbolcu LionelMessi= new Futbolcu();
     Futbolcu CristianoRonalo = new Futbolcu();
     Futbolcu TonyKross= new Futbolcu();
     Futbolcu MohammedSalah= new Futbolcu();
     Futbolcu RobertLewandowski= new Futbolcu();
     Futbolcu MarcoReus= new Futbolcu();
     Futbolcu Neymar= new Futbolcu();
-    Futbolcu KarimBenzema= new Futbolcu();
+    Futbolcu KarimBenzema= new Futbolcu();*/
 
 
 

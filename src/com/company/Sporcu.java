@@ -1,6 +1,6 @@
 package com.company;
 
-public class Sporcu {
+public abstract class Sporcu {
     private String sporcuIsim;
     private String sporcuTakim;
 
@@ -12,6 +12,11 @@ public class Sporcu {
 
     public Sporcu() {
     }
+
+    public abstract int[] sporcuPuaniGoster();
+
+
+
 
 
 
