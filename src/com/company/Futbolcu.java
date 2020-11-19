@@ -1,46 +1,29 @@
 package com.company;
 
 public class Futbolcu extends Sporcu {
-    private String futbolcuAdi;
-    private String futbolcuTakim;
+
     private int penalti;
     private int serbestVurus;
     private int kaleciKarsiKarsiya;
 
-    public Futbolcu(){
+    Futbolcu() {
+        super();
         System.out.println("futbolcu olusturuldu");
     }
 
     @Override
     public int[] sporcuPuaniGoster() {
 
-        return new int[]{penalti,serbestVurus,kaleciKarsiKarsiya};
+        return new int[]{getPenalti(), getSerbestVurus(), getKaleciKarsiKarsiya()};
     }
 
-    public Futbolcu(String futbolcuAdi, String futbolcuTakim, int penalti, int serbestVurus, int kaleciKarsiKarsiya) {
-        this.futbolcuAdi = futbolcuAdi;
-        this.futbolcuTakim= futbolcuTakim;
-        this.kaleciKarsiKarsiya=kaleciKarsiKarsiya;
-        this.penalti=penalti;
-        this.serbestVurus=serbestVurus;
-    }
-    public Futbolcu(String sporcuIsim, String sporcuTakim) {
+    Futbolcu(String sporcuIsim, String sporcuTakim, int penalti, int serbestVurus, int kaleciKarsiKarsiya) {
         super(sporcuIsim, sporcuTakim);
+        setKaleciKarsiKarsiya(kaleciKarsiKarsiya);
+        setPenalti(penalti);
+        setSerbestVurus(serbestVurus);
+        System.out.println("parametreli futbolcu olusturuldu");
     }
-
-
-   /* Futbolcu LionelMessi= new Futbolcu();
-    Futbolcu CristianoRonalo = new Futbolcu();
-    Futbolcu TonyKross= new Futbolcu();
-    Futbolcu MohammedSalah= new Futbolcu();
-    Futbolcu RobertLewandowski= new Futbolcu();
-    Futbolcu MarcoReus= new Futbolcu();
-    Futbolcu Neymar= new Futbolcu();
-    Futbolcu KarimBenzema= new Futbolcu();*/
-
-
-
-
 
 
     public int getSerbestVurus() {

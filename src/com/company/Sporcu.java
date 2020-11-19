@@ -5,19 +5,15 @@ public abstract class Sporcu {
     private String sporcuTakim;
 
 
-    public Sporcu(String sporcuIsim, String sporcuTakim) {
-        this.sporcuIsim = sporcuIsim;
-        this.sporcuTakim = sporcuTakim;
+    Sporcu(String sporcuIsim, String sporcuTakim) {
+        setsporcuIsim(sporcuIsim);
+        setsporcuTakim(sporcuTakim);
     }
 
-    public Sporcu() {
+    Sporcu() {
     }
 
     public abstract int[] sporcuPuaniGoster();
-
-
-
-
 
 
     public String getsporcuIsim() {

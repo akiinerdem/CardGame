@@ -2,45 +2,30 @@ package com.company;
 
 public class Basketbolcu extends Sporcu {
 
-    private String basketbolcuTakim;
-    private String basketbolcuIsim;
+
     private int serbestAtis;
     private int ucluk;
     private int ikilik;
 
 
-
-    public Basketbolcu(){
+    Basketbolcu() {
+        super();
         System.out.println("Basketbolccu olusturuldu");
     }
 
-    public Basketbolcu(int serbestAtis,int ucluk, int ikilik,String basketbolcuIsim, String basketbolcuTakim) {
-        this.serbestAtis = serbestAtis;
-        this.ucluk=ucluk;
-        this.ikilik=ikilik;
-        this.basketbolcuIsim=basketbolcuIsim;
-        this.basketbolcuTakim=basketbolcuTakim;
+    Basketbolcu(String sporcuTakim, String sporcuIsim, int serbestAtis, int ucluk, int ikilik) {
+        super(sporcuTakim, sporcuIsim);
+        setSerbestAtis(serbestAtis);
+        setIkilik(ikilik);
+        setUcluk(ucluk);
+        System.out.println("Parametreli bir basketbolcu olusturuldu");
     }
 
-    public Basketbolcu(String sporcuTakim,String sporcuIsim) {
-     super(sporcuTakim,sporcuIsim);
-    }
+
     @Override
     public int[] sporcuPuaniGoster() {
-        return new int[]{serbestAtis,ikilik,ucluk};
+        return new int[]{getSerbestAtis(), getIkilik(), getUcluk()};
     }
-
-  /*  Basketbolcu KobeBryant = new Basketbolcu();
-    Basketbolcu LebronJames = new Basketbolcu();
-    Basketbolcu MichaelJordan = new Basketbolcu();
-    Basketbolcu StephCurry = new Basketbolcu();
-    Basketbolcu ShaquilleONeal = new Basketbolcu();
-    Basketbolcu AnthonyDavis = new Basketbolcu();
-    Basketbolcu KevinDurant = new Basketbolcu();
-    Basketbolcu JamesHarden = new Basketbolcu();*/
-
-
-
 
 
     public int getUcluk() {
@@ -66,9 +51,6 @@ public class Basketbolcu extends Sporcu {
     public void setSerbestAtis(int serbestAtis) {
         this.serbestAtis = serbestAtis;
     }
-
-
-
 
 
 }
