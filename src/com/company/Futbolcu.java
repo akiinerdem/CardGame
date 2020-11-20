@@ -6,6 +6,7 @@ public class Futbolcu extends Sporcu {
     private int serbestVurus;
     private int kaleciKarsiKarsiya;
 
+
     Futbolcu() {
         super();
         System.out.println("futbolcu olusturuldu");
