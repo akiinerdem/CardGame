@@ -5,11 +5,36 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Main {
 
     public static void test() {
 
+    }
+    public static int fRandomPozisyon(){
+        Random r = new Random();
+        int fkacinciEleman = r.nextInt(3);
+       if(fkacinciEleman==0)
+           System.out.println("Penalti pozisyonu seçildi");
+       else if (fkacinciEleman==1)
+           System.out.println("Serbest vuruş pozisyonu seçildi");
+       else
+           System.out.println("Kaleci ile karsi karsiya pozisyonu seçildi");
+
+       return fkacinciEleman;
+    }
+    public static int bRandomPozisyon(){
+        Random r = new Random();
+        int bkacinciEleman = r.nextInt(3);
+        if(bkacinciEleman==0)
+            System.out.println("Serbest atis pozisyonu seçildi");
+        else if (bkacinciEleman==1)
+            System.out.println("Ikilik pozisyonu seçildi");
+        else
+            System.out.println("Ucluk pozisyonu seçildi");
+
+        return bkacinciEleman;
     }
 
     public static void main(String[] args) {
@@ -40,6 +65,9 @@ public class Main {
             Basketbolcular[i].sporcuPuaniGoster();
             System.out.println("isim:" + Basketbolcular[i].getsporcuIsim() + "  Takim:" + Basketbolcular[i].getsporcuTakim() + "  Serbest Atış:" + Basketbolcular[i].getSerbestAtis() + "  Ikilik:" + Basketbolcular[i].getIkilik() + "  Ucluk:" + Basketbolcular[i].getUcluk());
         }
+
+        System.out.println(fRandomPozisyon());
+        System.out.println(bRandomPozisyon());
 
     }
 
