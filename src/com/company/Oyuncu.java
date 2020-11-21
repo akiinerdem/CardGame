@@ -9,8 +9,7 @@ public abstract class Oyuncu {
     private int oyuncuID;
     private String oyuncuAdi;
     private int skor;
-    // TODO: sporcu tipinden ArrayList olarak belirle
-    private ArrayList<Sporcu> kartListesi;
+    private ArrayList<Sporcu> kartListesi = new ArrayList<>();
 
     // Parametresiz yapilandirici
     Oyuncu() {

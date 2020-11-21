@@ -1,15 +1,14 @@
-// TODO: Use card lists from within kullanici and bilgisayar classes
-// TODO: Remove arraylist parameters from oyuncu classes
 package com.company;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class TestSinifi {
     private Futbolcu[] futbolcular;
     private Basketbolcu[] basketbolcular;
-    private ArrayList<Sporcu> kartlar1; // Bilgisayar kartlari
-    private ArrayList<Sporcu> kartlar2; // Kullanici kartlari
+    private final Bilgisayar bilgisayar = new Bilgisayar();
+    private final Kullanici kullanici = new Kullanici();
     private final Random random = new Random();
     private int len;
 
@@ -65,6 +64,7 @@ public class TestSinifi {
     }
 
     private void kartlariKontrolEt() {
+        // Kart sayisi kontrolu
         if (basketbolcular.length == futbolcular.length)
             len = basketbolcular.length;
         else {
@@ -76,10 +76,10 @@ public class TestSinifi {
     private void kartlariDagit() {
         kartlariKaristir();
         for (int i = 0; i < len; i += 2) {
-            kartlar1.add(futbolcular[i]);
-            kartlar1.add(basketbolcular[i]);
-            kartlar2.add(futbolcular[i + 1]);
-            kartlar2.add(basketbolcular[i + 1]);
+            bilgisayar.getKartListesi().add(futbolcular[i]);
+            bilgisayar.getKartListesi().add(basketbolcular[i]);
+            kullanici.getKartListesi().add(futbolcular[i + 1]);
+            kullanici.getKartListesi().add(basketbolcular[i + 1]);
         }
     }
 
