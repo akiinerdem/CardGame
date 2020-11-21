@@ -2,14 +2,13 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.lang.*;
 
 public class TestSinifi {
     private Futbolcu[] futbolcular;
     private Basketbolcu[] basketbolcular;
-    private ArrayList<Sporcu> kartlar1; // Bilgisayar kartlari
-    private ArrayList<Sporcu> kartlar2; // Kullanici kartlari
-    private Random random = new Random();
+    private ArrayList<Sporcu> kartlar1 = new ArrayList<>(); // Bilgisayar kartlari
+    private ArrayList<Sporcu> kartlar2 = new ArrayList<>(); // Kullanici kartlari
+    private final Random random = new Random();
     private int len;
 
     TestSinifi() {
@@ -73,11 +72,17 @@ public class TestSinifi {
 
     private void kartlariDagit() {
         kartlariKaristir();
-
+        for (int i = 0; i < len; i += 2) {
+            kartlar1.add(futbolcular[i]);
+            kartlar1.add(basketbolcular[i]);
+            kartlar2.add(futbolcular[i + 1]);
+            kartlar2.add(basketbolcular[i + 1]);
+        }
     }
 
     public int oyunuBaslat() {
         sporculariTanimla();
+        kartlariDagit();
         return 0;
     }
 
