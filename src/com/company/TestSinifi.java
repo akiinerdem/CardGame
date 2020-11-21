@@ -102,9 +102,13 @@ public class TestSinifi {
             kart2 = kullanici.KartSec(tip);
             System.out.println(kart1.getsporcuIsim() + ": " + kart1.getsporcuTakim() + " " + Arrays.toString(kart1.sporcuPuaniGoster()));
             System.out.println(kart2.getsporcuIsim() + ": " + kart2.getsporcuTakim() + " :" + Arrays.toString(kart2.sporcuPuaniGoster()));
+            // rastgelePozisyonSec()
+            // kartlariKarsilastir()
             kart1.setKartKullanildiMi(true);
             kart2.setKartKullanildiMi(true);
             kalanKartlar--;
+            // kart tipini degistiriyor
+            tip = tip == 0 ? 1 : 0;
         }
     }
 
