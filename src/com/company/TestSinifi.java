@@ -85,11 +85,11 @@ public class TestSinifi {
         Basketbolcu MichaelJordan = new Basketbolcu("MichaelJordan", "Bulls", 96, 96, 96);
         Basketbolcu StephCurry = new Basketbolcu("StephCurry", "GoldenState", 95, 97, 95);
         Basketbolcu ShaquilleONeal = new Basketbolcu("ShaquilleONeal", "Lakers", 92, 93, 91);
-        Basketbolcu ShaneLarkin = new Basketbolcu("ShaneLarkin", "AnadoluEfes", 94, 95, 96);
+        Basketbolcu RussellWestbrook= new Basketbolcu("RussellWestbrook", "Houston", 94, 95, 96);
         Basketbolcu ScottiePippen = new Basketbolcu("ScottiePippen", "Bulls", 93, 91, 90);
         Basketbolcu JamesHarden = new Basketbolcu("JamesHarden", "Houston", 94, 91, 93);
         futbolcular = new Futbolcu[]{LionelMessi, CristianoRonalo, TonyKross, MohammedSalah, RobertLewandowski, MarcoReus, NeymarJR, KarimBenzema};
-        basketbolcular = new Basketbolcu[]{KobeBryant, LebronJames, MichaelJordan, StephCurry, ShaquilleONeal, ShaneLarkin, ScottiePippen, JamesHarden};
+        basketbolcular = new Basketbolcu[]{KobeBryant, LebronJames, MichaelJordan, StephCurry, ShaquilleONeal, RussellWestbrook, ScottiePippen, JamesHarden};
         kartlariKontrolEt();
     }
 
