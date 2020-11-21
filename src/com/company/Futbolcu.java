@@ -5,6 +5,7 @@ public class Futbolcu extends Sporcu {
     private int penalti;
     private int serbestVurus;
     private int kaleciKarsiKarsiya;
+    private final int tip = 0;
 
     Futbolcu() {
         super();

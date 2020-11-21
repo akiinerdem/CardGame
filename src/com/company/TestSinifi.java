@@ -11,6 +11,7 @@ public class TestSinifi {
     private final Kullanici kullanici = new Kullanici();
     private final Random random = new Random();
     private int len;
+    private int kalanKartlar;
 
     TestSinifi() {
 
@@ -87,6 +88,18 @@ public class TestSinifi {
         sporculariTanimla();
         kartlariDagit();
         return 0;
+    }
+
+    private void oyunDongusu(){
+        Sporcu kart1;
+        Sporcu kart2;
+        int tip = 0;
+        while (kalanKartlar != 0){
+            kart1 = bilgisayar.KartSec(0);
+            kart2 = kullanici.KartSec(0);
+
+            System.out.println(kart1.getsporcuIsim() + ": ");
+        }
     }
 
     private Sporcu kartiSec() {

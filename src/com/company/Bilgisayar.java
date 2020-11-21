@@ -17,7 +17,7 @@ public class Bilgisayar extends Oyuncu {
         System.out.println("Parametreli Bilgisayar sinif yapilandiricisi cagirildi");
     }
     @Override
-    public Sporcu KartSec(){
+    public Sporcu KartSec(int tip){
         Random random = new Random();
         // kartlistesinden rastgele eleman secilir
         ArrayList<Sporcu> kartListesi = getKartListesi();

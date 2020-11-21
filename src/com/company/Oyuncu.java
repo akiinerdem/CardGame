@@ -24,9 +24,7 @@ public abstract class Oyuncu {
         System.out.println(oyuncuID + " ID nolu " + oyuncuAdi + " adli Oyuncu nesne yapilandirildi");
     }
 
-    // TODO: sporcu sinif olusturulunca,
-    //  bu fonksiyon sporcu sinifindan obje dondursun, int degil
-    public abstract Sporcu KartSec();
+    public abstract Sporcu KartSec(int tip);
 
     public int getOyuncuID() {
         return oyuncuID;

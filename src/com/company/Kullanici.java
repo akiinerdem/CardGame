@@ -16,12 +16,18 @@ public class Kullanici extends Oyuncu {
         System.out.println("Parametreli Kullanici sinif yapilandiricisi cagirildi");
     }
     @Override
-    public Sporcu KartSec(){
+    public Sporcu KartSec(int tip){
         // TODO: arayuz bitince, arayuzle calisacak sekilde yaz
         System.out.println("oynamak istedigin kartin indisini yaz: ");
         Scanner scanner = new Scanner(System.in);
-        int kart = scanner.nextInt();
+        int kartIndis = scanner.nextInt();
         ArrayList<Sporcu> kartListesi = getKartListesi();
-        return kartListesi.get(kart);
+        Sporcu kart = kartListesi.get(kartIndis);
+        while (kart.getTip() != tip){
+            System.out.println("Yanlis sporcu tipinden kart sectin. Lutfen baska bir kart secin: ");
+            kartIndis = scanner.nextInt();
+            kartListesi.get(kartIndis);
+        }
+        return ;
     }
 }
