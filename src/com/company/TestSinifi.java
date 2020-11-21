@@ -1,3 +1,5 @@
+// TODO: Use card lists from within kullanici and bilgisayar classes
+// TODO: Remove arraylist parameters from oyuncu classes
 package com.company;
 
 import java.util.ArrayList;
@@ -6,12 +8,13 @@ import java.util.Random;
 public class TestSinifi {
     private Futbolcu[] futbolcular;
     private Basketbolcu[] basketbolcular;
-    private ArrayList<Sporcu> kartlar1 = new ArrayList<>(); // Bilgisayar kartlari
-    private ArrayList<Sporcu> kartlar2 = new ArrayList<>(); // Kullanici kartlari
+    private ArrayList<Sporcu> kartlar1; // Bilgisayar kartlari
+    private ArrayList<Sporcu> kartlar2; // Kullanici kartlari
     private final Random random = new Random();
     private int len;
 
     TestSinifi() {
+
     }
 
     TestSinifi(Futbolcu[] futbolcular, Basketbolcu[] basketbolcular) {

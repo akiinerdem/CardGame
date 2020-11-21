@@ -44,7 +44,7 @@ public class Main {
         kartlar.add(Neymar);
         System.out.println("vvvvvvvvvvvvv-Bilgisayar sinif denemesi-vvvvvvvvvvvvv");
         System.out.println("Parametreli yapilandirmak:");
-        Bilgisayar lenovo = new Bilgisayar(52, "Lenovo G50", 24, kartlar);
+        Bilgisayar lenovo = new Bilgisayar(52, "Lenovo G50", 24);
         System.out.println(lenovo.getOyuncuID() + ". " + lenovo.getOyuncuAdi() + " " + lenovo.getSkor() + " puan");
         System.out.println("Parametresiz yapilandirmak:");
         Bilgisayar dell = new Bilgisayar();

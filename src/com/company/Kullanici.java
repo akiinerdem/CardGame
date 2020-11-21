@@ -11,8 +11,8 @@ public class Kullanici extends Oyuncu {
     }
 
     // Parametreli yapilandirici
-    Kullanici(int OyuncuID, String OyuncuAdi, int skor, ArrayList<Sporcu> kartListesi) {
-        super(OyuncuID, OyuncuAdi, skor, kartListesi);
+    Kullanici(int OyuncuID, String OyuncuAdi, int skor) {
+        super(OyuncuID, OyuncuAdi, skor);
         System.out.println("Parametreli Kullanici sinif yapilandiricisi cagirildi");
     }
     @Override

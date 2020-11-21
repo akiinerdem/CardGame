@@ -18,11 +18,10 @@ public abstract class Oyuncu {
     }
 
     // Parametreli yapilandirici
-    Oyuncu(int OyuncuID, String OyuncuAdi, int skor, ArrayList<Sporcu> kartListesi) {
+    Oyuncu(int OyuncuID, String OyuncuAdi, int skor) {
         setOyuncuID(OyuncuID);
         setOyuncuAdi(OyuncuAdi);
         setSkor(skor);
-        setKartListesi(kartListesi);
         System.out.println(oyuncuID + " ID nolu " + oyuncuAdi + " adli Oyuncu nesne yapilandirildi");
     }
 

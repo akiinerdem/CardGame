@@ -12,8 +12,8 @@ public class Bilgisayar extends Oyuncu {
     }
 
     // Parametreli yapilandirici
-    Bilgisayar(int OyuncuID, String OyuncuAdi, int skor, ArrayList<Sporcu> kartListesi) {
-        super(OyuncuID, OyuncuAdi, skor, kartListesi);
+    Bilgisayar(int OyuncuID, String OyuncuAdi, int skor) {
+        super(OyuncuID, OyuncuAdi, skor);
         System.out.println("Parametreli Bilgisayar sinif yapilandiricisi cagirildi");
     }
     @Override
