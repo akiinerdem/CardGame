@@ -3,7 +3,7 @@ package com.company;
 public abstract class Sporcu {
     private String sporcuIsim;
     private String sporcuTakim;
-
+    private boolean kartKullanildi = false;
 
     Sporcu(String sporcuIsim, String sporcuTakim) {
         setsporcuIsim(sporcuIsim);
