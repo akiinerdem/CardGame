@@ -16,15 +16,16 @@ public class Bilgisayar extends Oyuncu {
         super(OyuncuID, OyuncuAdi, skor);
         System.out.println("Parametreli Bilgisayar sinif yapilandiricisi cagirildi");
     }
+
     @Override
-    public Sporcu KartSec(int tip){
+    public Sporcu KartSec(int tip) {
         Random random = new Random();
         // kartlistesinden rastgele eleman secilir
         ArrayList<Sporcu> kartListesi = getKartListesi();
         int kartIndis = random.nextInt(kartListesi.size());
         Sporcu kart = kartListesi.get(kartIndis);
         // istenilen tipinden kart bulana kadar donuyor
-        while (kart.getTip() != tip){
+        while (kart.getTip() != tip) {
             kartIndis = random.nextInt(kartListesi.size());
             kart = kartListesi.get(kartIndis);
         }
