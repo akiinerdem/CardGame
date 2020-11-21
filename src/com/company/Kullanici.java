@@ -11,17 +11,17 @@ public class Kullanici extends Oyuncu {
     }
 
     // Parametreli yapilandirici
-    Kullanici(int OyuncuID, String OyuncuAdi, int skor, ArrayList<Integer> kartListesi) {
+    Kullanici(int OyuncuID, String OyuncuAdi, int skor, ArrayList<Sporcu> kartListesi) {
         super(OyuncuID, OyuncuAdi, skor, kartListesi);
         System.out.println("Parametreli Kullanici sinif yapilandiricisi cagirildi");
     }
     @Override
-    public int KartSec(){
+    public Sporcu KartSec(){
         // TODO: arayuz bitince, arayuzle calisacak sekilde yaz
         System.out.println("oynamak istedigin kartin indisini yaz: ");
         Scanner scanner = new Scanner(System.in);
         int kart = scanner.nextInt();
-        ArrayList<Integer> kartListesi = getKartListesi();
+        ArrayList<Sporcu> kartListesi = getKartListesi();
         return kartListesi.get(kart);
     }
 }

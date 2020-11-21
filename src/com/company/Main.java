@@ -1,4 +1,3 @@
-// TODO: siniflari olustur
 // TODO: Test sinifini olustur
 // TODO: Oyun arayuzunu tasarla
 
@@ -37,9 +36,11 @@ public class Main {
     }
 
     private static void OyuncuTest() {
-        ArrayList<Integer> kartlar = new ArrayList<>();
-        kartlar.add(2);
-        kartlar.add(5);
+        ArrayList<Sporcu> kartlar = new ArrayList<>();
+        Basketbolcu KevinDurant = new Basketbolcu();
+        Futbolcu Neymar = new Futbolcu();
+        kartlar.add(KevinDurant);
+        kartlar.add(Neymar);
         System.out.println("vvvvvvvvvvvvv-Bilgisayar sinif denemesi-vvvvvvvvvvvvv");
         System.out.println("Parametreli yapilandirmak:");
         Bilgisayar lenovo = new Bilgisayar(52, "Lenovo G50", 24, kartlar);
