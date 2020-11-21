@@ -11,9 +11,6 @@ public class Futbolcu extends Sporcu {
         super();
         System.out.println("futbolcu olusturuldu");
     }
-    public int[] Fpozisyon() {
-       return new int[]{getPenalti(), getSerbestVurus(), getKaleciKarsiKarsiya()};
-    }
     @Override
     public int[] sporcuPuaniGoster() {
 

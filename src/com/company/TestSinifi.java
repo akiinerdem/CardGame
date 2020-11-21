@@ -33,44 +33,32 @@ public class TestSinifi {
             futbolcular[j] = tempFutbolcu;
         }
     }
-    private void kartlariKarsilastir(Sporcu kart1,Sporcu kart2,int tip){
-        int[] ozellikler1=kart1.sporcuPuaniGoster();
-        int[] ozellikler2= kart2.sporcuPuaniGoster();
+
+    private void kartlariKarsilastir(Sporcu kart1, Sporcu kart2, int tip) {
+        int[] ozellikler1 = kart1.sporcuPuaniGoster();
+        int[] ozellikler2 = kart2.sporcuPuaniGoster();
         int prandom = random.nextInt(3);
-        System.out.println(prandom+" ozellik kontrol ediliyor");
-        if(tip==0){
-          
-            if(ozellikler1[prandom]>ozellikler2[prandom]){
+        System.out.println(prandom + " ozellik kontrol ediliyor");
+        // TODO: iki farkli tip icin farkli seyler yap
+        if (tip == 0) {
+            if (ozellikler1[prandom] > ozellikler2[prandom]) {
                 System.out.println("Kart1 kazandi");
-                
-            }
-           else if(ozellikler1[prandom]<ozellikler2[prandom]){
+            } else if (ozellikler1[prandom] < ozellikler2[prandom]) {
                 System.out.println("Kart2 kazandi");
-            }
-            else{
+            } else {
                 System.out.println("Esitlik");
             }
-            
-        }
-    else if(tip==1){
-            
-           
-            if(ozellikler1[prandom]>ozellikler2[prandom]){
+        } else if (tip == 1) {
+            if (ozellikler1[prandom] > ozellikler2[prandom]) {
                 System.out.println("Kart1 kazandi");
-
-            }
-            else if(ozellikler1[prandom]<ozellikler2[prandom]){
+            } else if (ozellikler1[prandom] < ozellikler2[prandom]) {
                 System.out.println("Kart2 kazandi");
-            }
-            else{
+            } else {
                 System.out.println("Esitlik");
             }
-        
         }
-
-
-
     }
+
     private void sporculariTanimla() {
         Futbolcu LionelMessi = new Futbolcu("LionelMessi", "Barcelona", 96, 90, 95);
         Futbolcu CristianoRonalo = new Futbolcu("CristianoRonalo", "Juventus", 97, 92, 94);
@@ -125,12 +113,14 @@ public class TestSinifi {
         Sporcu kart1;
         Sporcu kart2;
         int tip = 0; // 0 ise futbolcu, 1 ise basketbolcu
+        String[] tipler = {"Futbolcular", "Basketbolcular"};
         while (kalanKartlar != 0) {
+            System.out.println(tipler[tip]);
             kart1 = bilgisayar.KartSec(tip);
             kart2 = kullanici.KartSec(tip);
             System.out.println(kart1.getsporcuIsim() + ": " + kart1.getsporcuTakim() + " :" + Arrays.toString(kart1.sporcuPuaniGoster()));
             System.out.println(kart2.getsporcuIsim() + ": " + kart2.getsporcuTakim() + " :" + Arrays.toString(kart2.sporcuPuaniGoster()));
-            kartlariKarsilastir(kart1,kart2,tip);
+            kartlariKarsilastir(kart1, kart2, tip);
             kart1.setKartKullanildi(true);
             kart2.setKartKullanildi(true);
             kalanKartlar--;

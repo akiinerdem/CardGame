@@ -1,10 +1,6 @@
-// TODO: siniflari olustur
-// TODO: Test sinifini olustur
 // TODO: Oyun arayuzunu tasarla
 
 package com.company;
-
-import java.util.ArrayList;
 
 public class Main {
 
