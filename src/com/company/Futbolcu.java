@@ -5,7 +5,6 @@ public class Futbolcu extends Sporcu {
     private int penalti;
     private int serbestVurus;
     private int kaleciKarsiKarsiya;
-    private final int tip = 0;
 
     Futbolcu() {
         super();
@@ -16,6 +15,12 @@ public class Futbolcu extends Sporcu {
     public int[] sporcuPuaniGoster() {
 
         return new int[]{getPenalti(), getSerbestVurus(), getKaleciKarsiKarsiya()};
+    }
+
+    @Override
+    public int getTip() {
+        // class tipini belirlemek icin. Futbolcunun tipi 0'dir
+        return 0;
     }
 
     Futbolcu(String sporcuIsim, String sporcuTakim, int penalti, int serbestVurus, int kaleciKarsiKarsiya) {

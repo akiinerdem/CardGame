@@ -24,10 +24,10 @@ public class Kullanici extends Oyuncu {
         ArrayList<Sporcu> kartListesi = getKartListesi();
         Sporcu kart = kartListesi.get(kartIndis);
         while (kart.getTip() != tip){
-            System.out.println("Yanlis sporcu tipinden kart sectin. Lutfen baska bir kart secin: ");
+            System.out.println("Yanlis sporcu tipinden karti sectiniz. Lutfen baska bir karti secin: ");
             kartIndis = scanner.nextInt();
-            kartListesi.get(kartIndis);
+            kart = kartListesi.get(kartIndis);
         }
-        return ;
+        return kart;
     }
 }

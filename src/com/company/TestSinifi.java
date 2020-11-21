@@ -93,10 +93,10 @@ public class TestSinifi {
     private void oyunDongusu(){
         Sporcu kart1;
         Sporcu kart2;
-        int tip = 0;
+        int tip = 0; // 0 ise futbolcu, 1 ise basketbolcu
         while (kalanKartlar != 0){
-            kart1 = bilgisayar.KartSec(0);
-            kart2 = kullanici.KartSec(0);
+            kart1 = bilgisayar.KartSec(tip);
+            kart2 = kullanici.KartSec(tip);
 
             System.out.println(kart1.getsporcuIsim() + ": ");
         }

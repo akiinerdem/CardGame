@@ -32,4 +32,5 @@ public abstract class Sporcu {
         this.sporcuTakim = sporcuTakim;
     }
 
+    public abstract int getTip();
 }

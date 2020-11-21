@@ -21,6 +21,13 @@ public class Bilgisayar extends Oyuncu {
         Random random = new Random();
         // kartlistesinden rastgele eleman secilir
         ArrayList<Sporcu> kartListesi = getKartListesi();
-        return kartListesi.get(random.nextInt(kartListesi.size()));
+        int kartIndis = random.nextInt(kartListesi.size());
+        Sporcu kart = kartListesi.get(kartIndis);
+        // istenilen tipinden kart bulana kadar donuyor
+        while (kart.getTip() != tip){
+            kartIndis = random.nextInt(kartListesi.size());
+            kart = kartListesi.get(kartIndis);
+        }
+        return kart;
     }
 }
