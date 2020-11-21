@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.lang.*;
 
 public class TestSinifi {
     private Futbolcu[] futbolcular;
@@ -9,15 +10,18 @@ public class TestSinifi {
     private ArrayList<Sporcu> kartlar1; // Bilgisayar kartlari
     private ArrayList<Sporcu> kartlar2; // Kullanici kartlari
     private Random random = new Random();
+    private int len;
 
-    TestSinifi(){}
+    TestSinifi() {
+    }
 
-    TestSinifi(Futbolcu[] futbolcular, Basketbolcu[] basketbolcular){
+    TestSinifi(Futbolcu[] futbolcular, Basketbolcu[] basketbolcular) {
         this.futbolcular = futbolcular;
         this.basketbolcular = basketbolcular;
-        kartlariKaristir();
+        kartlariKontrolEt();
     }
-    private void kartlariKaristir(){
+
+    private void kartlariKaristir() {
         // Richard Durstenfeld dizi karistirma algoritmasi
         int j;
         Basketbolcu tempBasketbolcu;
@@ -35,7 +39,8 @@ public class TestSinifi {
             futbolcular[j] = tempFutbolcu;
         }
     }
-    private void sporculariTanimla(){
+
+    private void sporculariTanimla() {
         Futbolcu LionelMessi = new Futbolcu("LionelMessi", "Barcelona", 96, 90, 95);
         Futbolcu CristianoRonalo = new Futbolcu("CristianoRonalo", "Juventus", 97, 92, 94);
         Futbolcu TonyKross = new Futbolcu("TonyKross", "RealMadrid", 90, 87, 89);
@@ -54,18 +59,32 @@ public class TestSinifi {
         Basketbolcu JamesHarden = new Basketbolcu("JamesHarden", "Houston", 94, 91, 93);
         futbolcular = new Futbolcu[]{LionelMessi, CristianoRonalo, TonyKross, MohammedSalah, RobertLewandowski, MarcoReus, NeymarJR, KarimBenzema};
         basketbolcular = new Basketbolcu[]{KobeBryant, LebronJames, MichaelJordan, StephCurry, ShaquilleONeal, ShaneLarkin, ScottiePippen, JamesHarden};
+        kartlariKontrolEt();
     }
-    private void kartlariDagit(){
 
-
+    private void kartlariKontrolEt() {
+        if (basketbolcular.length == futbolcular.length)
+            len = basketbolcular.length;
+        else {
+            System.out.println("kart sayisi ayni degil. Lutfen oyunu tekrardan baslatin.");
+            System.exit(1);
+        }
     }
-    public int oyunuBaslat(){
-        sporculariTanimla();
+
+    private void kartlariDagit() {
         kartlariKaristir();
+
+    }
+
+    public int oyunuBaslat() {
+        sporculariTanimla();
         return 0;
     }
-    private Sporcu kartiSec(){
+
+    private Sporcu kartiSec() {
         return null;
     }
-    void kartTipiniDegistir(){}
+
+    void kartTipiniDegistir() {
+    }
 }
