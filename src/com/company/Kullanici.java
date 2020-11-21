@@ -11,17 +11,26 @@ public class Kullanici extends Oyuncu {
     }
 
     // Parametreli yapilandirici
-    Kullanici(int OyuncuID, String OyuncuAdi, int skor, ArrayList<Integer> kartListesi) {
-        super(OyuncuID, OyuncuAdi, skor, kartListesi);
+    Kullanici(int OyuncuID, String OyuncuAdi, int skor) {
+        super(OyuncuID, OyuncuAdi, skor);
         System.out.println("Parametreli Kullanici sinif yapilandiricisi cagirildi");
     }
+
     @Override
-    public int KartSec(){
+    public Sporcu KartSec(int tip) {
         // TODO: arayuz bitince, arayuzle calisacak sekilde yaz
-        System.out.println("oynamak istedigin kartin indisini yaz: ");
+        System.out.println("oynamak istedigin kartin indisini yazin: ");
         Scanner scanner = new Scanner(System.in);
-        int kart = scanner.nextInt();
-        ArrayList<Integer> kartListesi = getKartListesi();
-        return kartListesi.get(kart);
+        int kartIndis = scanner.nextInt();
+        // TODO: kart girdisinin dogru araliginda olmasini kontrol et
+
+        ArrayList<Sporcu> kartListesi = getKartListesi();
+        Sporcu kart = kartListesi.get(kartIndis);
+        while (kart.getTip() != tip || kart.KartKullanildiMi()) {
+            System.out.println("Yanlis sporcu tipinden bir kart sectiniz. Lutfen baska bir kart secin: ");
+            kartIndis = scanner.nextInt();
+            kart = kartListesi.get(kartIndis);
+        }
+        return kart;
     }
 }

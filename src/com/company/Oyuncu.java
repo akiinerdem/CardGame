@@ -9,8 +9,7 @@ public abstract class Oyuncu {
     private int oyuncuID;
     private String oyuncuAdi;
     private int skor;
-    // TODO: sporcu tipinden ArrayList olarak belirle
-    private ArrayList<Integer> kartListesi;
+    private ArrayList<Sporcu> kartListesi = new ArrayList<>();
 
     // Parametresiz yapilandirici
     Oyuncu() {
@@ -18,17 +17,14 @@ public abstract class Oyuncu {
     }
 
     // Parametreli yapilandirici
-    Oyuncu(int OyuncuID, String OyuncuAdi, int skor, ArrayList<Integer> kartListesi) {
+    Oyuncu(int OyuncuID, String OyuncuAdi, int skor) {
         setOyuncuID(OyuncuID);
         setOyuncuAdi(OyuncuAdi);
         setSkor(skor);
-        setKartListesi(kartListesi);
         System.out.println(oyuncuID + " ID nolu " + oyuncuAdi + " adli Oyuncu nesne yapilandirildi");
     }
 
-    // TODO: sporcu sinif olusturulunca,
-    //  bu fonksiyon sporcu sinifindan obje dondursun, int degil
-    public abstract int KartSec();
+    public abstract Sporcu KartSec(int tip);
 
     public int getOyuncuID() {
         return oyuncuID;
@@ -54,11 +50,11 @@ public abstract class Oyuncu {
         this.skor = skor;
     }
 
-    public ArrayList<Integer> getKartListesi() {
+    public ArrayList<Sporcu> getKartListesi() {
         return kartListesi;
     }
 
-    public void setKartListesi(ArrayList<Integer> kartListesi) {
+    public void setKartListesi(ArrayList<Sporcu> kartListesi) {
         this.kartListesi = kartListesi;
     }
 }

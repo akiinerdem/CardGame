@@ -3,7 +3,6 @@ package com.company;
 public abstract class Sporcu {
     private String sporcuIsim;
     private String sporcuTakim;
-    private boolean kartKullanildiMi = false;
 
 
     Sporcu(String sporcuIsim, String sporcuTakim) {
@@ -16,13 +15,6 @@ public abstract class Sporcu {
 
     public abstract int[] sporcuPuaniGoster();
 
-    public boolean isKartKullanildiMi() {
-        return kartKullanildiMi;
-    }
-
-    public void setKartKullanildiMi(boolean kartKullanildiMi) {
-        this.kartKullanildiMi = kartKullanildiMi;
-    }
 
     public String getsporcuIsim() {
         return sporcuIsim;
@@ -40,4 +32,13 @@ public abstract class Sporcu {
         this.sporcuTakim = sporcuTakim;
     }
 
+    public boolean KartKullanildiMi() {
+        return kartKullanildi;
+    }
+
+    public void setKartKullanildi(boolean kartKullanildi) {
+        this.kartKullanildi = kartKullanildi;
+    }
+
+    public abstract int getTip();
 }

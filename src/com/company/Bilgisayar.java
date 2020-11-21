@@ -12,15 +12,23 @@ public class Bilgisayar extends Oyuncu {
     }
 
     // Parametreli yapilandirici
-    Bilgisayar(int OyuncuID, String OyuncuAdi, int skor, ArrayList<Integer> kartListesi) {
-        super(OyuncuID, OyuncuAdi, skor, kartListesi);
+    Bilgisayar(int OyuncuID, String OyuncuAdi, int skor) {
+        super(OyuncuID, OyuncuAdi, skor);
         System.out.println("Parametreli Bilgisayar sinif yapilandiricisi cagirildi");
     }
+
     @Override
-    public int KartSec(){
+    public Sporcu KartSec(int tip) {
         Random random = new Random();
         // kartlistesinden rastgele eleman secilir
-        ArrayList<Integer> kartListesi = getKartListesi();
-        return kartListesi.get(random.nextInt(kartListesi.size()));
+        ArrayList<Sporcu> kartListesi = getKartListesi();
+        int kartIndis = random.nextInt(kartListesi.size());
+        Sporcu kart = kartListesi.get(kartIndis);
+        // istenilen tipinden kart bulana kadar donuyor
+        while (kart.getTip() != tip || kart.KartKullanildiMi()) {
+            kartIndis = random.nextInt(kartListesi.size());
+            kart = kartListesi.get(kartIndis);
+        }
+        return kart;
     }
 }

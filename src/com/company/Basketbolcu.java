@@ -52,5 +52,9 @@ public class Basketbolcu extends Sporcu {
         this.serbestAtis = serbestAtis;
     }
 
+    public int getTip() {
+        // class tipini belirlemek icin. basketbolcunun tipi 1'dir
+        return 1;
+    }
 
 }
