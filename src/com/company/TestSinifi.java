@@ -81,7 +81,7 @@ public class TestSinifi {
         Futbolcu NeymarJR = new Futbolcu("NeymarJR", "ParisSaintGermain", 95, 95, 94);
         Futbolcu KarimBenzema = new Futbolcu("KarimBenzema", "RealMadrid", 89, 87, 93);
         Basketbolcu KobeBryant = new Basketbolcu("KobeBryant", "Lakers", 99, 99, 99);
-        Basketbolcu LebronJames = new Basketbolcu("LebronJames", "Lakers", 97, 93, 95);
+        Basketbolcu LebronJames = new Basketbolcu("LebronJames", "Lakers", 95, 93, 97);
         Basketbolcu MichaelJordan = new Basketbolcu("MichaelJordan", "Bulls", 96, 96, 96);
         Basketbolcu StephCurry = new Basketbolcu("StephCurry", "GoldenState", 95, 97, 95);
         Basketbolcu ShaquilleONeal = new Basketbolcu("ShaquilleONeal", "Lakers", 92, 93, 91);
