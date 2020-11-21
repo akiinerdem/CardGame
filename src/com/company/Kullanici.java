@@ -18,13 +18,15 @@ public class Kullanici extends Oyuncu {
     @Override
     public Sporcu KartSec(int tip){
         // TODO: arayuz bitince, arayuzle calisacak sekilde yaz
-        System.out.println("oynamak istedigin kartin indisini yaz: ");
+        System.out.println("oynamak istedigin kartin indisini yazin: ");
         Scanner scanner = new Scanner(System.in);
         int kartIndis = scanner.nextInt();
+        // TODO: kart girdisinin dogru araliginda olmasini kontrol et
+
         ArrayList<Sporcu> kartListesi = getKartListesi();
         Sporcu kart = kartListesi.get(kartIndis);
         while (kart.getTip() != tip){
-            System.out.println("Yanlis sporcu tipinden karti sectiniz. Lutfen baska bir karti secin: ");
+            System.out.println("Yanlis sporcu tipinden bir kart sectiniz. Lutfen baska bir kart secin: ");
             kartIndis = scanner.nextInt();
             kart = kartListesi.get(kartIndis);
         }

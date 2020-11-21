@@ -2,6 +2,7 @@ package com.company;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class TestSinifi {
@@ -66,9 +67,10 @@ public class TestSinifi {
 
     private void kartlariKontrolEt() {
         // Kart sayisi kontrolu
-        if (basketbolcular.length == futbolcular.length)
+        if (basketbolcular.length == futbolcular.length) {
             len = basketbolcular.length;
-        else {
+            kalanKartlar = len;
+        } else {
             System.out.println("kart sayisi ayni degil. Lutfen oyunu tekrardan baslatin.");
             System.exit(1);
         }
@@ -87,18 +89,22 @@ public class TestSinifi {
     public int oyunuBaslat() {
         sporculariTanimla();
         kartlariDagit();
+        oyunDongusu();
         return 0;
     }
 
-    private void oyunDongusu(){
+    private void oyunDongusu() {
         Sporcu kart1;
         Sporcu kart2;
         int tip = 0; // 0 ise futbolcu, 1 ise basketbolcu
-        while (kalanKartlar != 0){
+        while (kalanKartlar != 0) {
             kart1 = bilgisayar.KartSec(tip);
             kart2 = kullanici.KartSec(tip);
-
-            System.out.println(kart1.getsporcuIsim() + ": ");
+            System.out.println(kart1.getsporcuIsim() + ": " + kart1.getsporcuTakim() + " " + Arrays.toString(kart1.sporcuPuaniGoster()));
+            System.out.println(kart2.getsporcuIsim() + ": " + kart2.getsporcuTakim() + " :" + Arrays.toString(kart2.sporcuPuaniGoster()));
+            kart1.setKartKullanildiMi(true);
+            kart2.setKartKullanildiMi(true);
+            kalanKartlar--;
         }
     }
 
