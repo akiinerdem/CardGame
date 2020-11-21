@@ -30,9 +30,10 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        OyuncuTest();
-        test();
-        test2();
+//        OyuncuTest();
+//        test();
+//        test2();
+        testSinifiTest();
     }
 
     private static void OyuncuTest() {
@@ -48,5 +49,10 @@ public class Main {
         System.out.println("Parametresiz yapilandirmak:");
         Bilgisayar dell = new Bilgisayar();
         System.out.println("^^^^^^^^^^^^^-Bilgisayar sinif denemesi-^^^^^^^^^^^^^");
+    }
+    private static void testSinifiTest(){
+        TestSinifi testSinifi = new TestSinifi();
+        int temp = testSinifi.oyunuBaslat();
+        System.out.println(temp);
     }
 }
