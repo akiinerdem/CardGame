@@ -26,7 +26,7 @@ public class Kullanici extends Oyuncu {
 
         ArrayList<Sporcu> kartListesi = getKartListesi();
         Sporcu kart = kartListesi.get(kartIndis);
-        while (kart.getTip() != tip) {
+        while (kart.getTip() != tip || kart.KartKullanildiMi()) {
             System.out.println("Yanlis sporcu tipinden bir kart sectiniz. Lutfen baska bir kart secin: ");
             kartIndis = scanner.nextInt();
             kart = kartListesi.get(kartIndis);

@@ -1,7 +1,5 @@
 package com.company;
 
-import java.math.BigInteger;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -15,13 +13,6 @@ public class TestSinifi {
     private int kalanKartlar;
 
     TestSinifi() {
-
-    }
-
-    TestSinifi(Futbolcu[] futbolcular, Basketbolcu[] basketbolcular) {
-        this.futbolcular = futbolcular;
-        this.basketbolcular = basketbolcular;
-        kartlariKontrolEt();
     }
 
     private void kartlariKaristir() {
@@ -100,22 +91,15 @@ public class TestSinifi {
         while (kalanKartlar != 0) {
             kart1 = bilgisayar.KartSec(tip);
             kart2 = kullanici.KartSec(tip);
-            System.out.println(kart1.getsporcuIsim() + ": " + kart1.getsporcuTakim() + " " + Arrays.toString(kart1.sporcuPuaniGoster()));
+            System.out.println(kart1.getsporcuIsim() + ": " + kart1.getsporcuTakim() + " :" + Arrays.toString(kart1.sporcuPuaniGoster()));
             System.out.println(kart2.getsporcuIsim() + ": " + kart2.getsporcuTakim() + " :" + Arrays.toString(kart2.sporcuPuaniGoster()));
             // rastgelePozisyonSec()
             // kartlariKarsilastir()
-            kart1.setKartKullanildiMi(true);
-            kart2.setKartKullanildiMi(true);
+            kart1.setKartKullanildi(true);
+            kart2.setKartKullanildi(true);
             kalanKartlar--;
             // kart tipini degistiriyor
             tip = tip == 0 ? 1 : 0;
         }
-    }
-
-    private Sporcu kartiSec() {
-        return null;
-    }
-
-    void kartTipiniDegistir() {
     }
 }

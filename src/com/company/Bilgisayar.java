@@ -25,7 +25,7 @@ public class Bilgisayar extends Oyuncu {
         int kartIndis = random.nextInt(kartListesi.size());
         Sporcu kart = kartListesi.get(kartIndis);
         // istenilen tipinden kart bulana kadar donuyor
-        while (kart.getTip() != tip) {
+        while (kart.getTip() != tip || kart.KartKullanildiMi()) {
             kartIndis = random.nextInt(kartListesi.size());
             kart = kartListesi.get(kartIndis);
         }

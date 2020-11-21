@@ -3,7 +3,7 @@ package com.company;
 public abstract class Sporcu {
     private String sporcuIsim;
     private String sporcuTakim;
-    private boolean kartKullanildiMi = false;
+    private boolean kartKullanildi = false;
 
 
     Sporcu(String sporcuIsim, String sporcuTakim) {
@@ -33,12 +33,12 @@ public abstract class Sporcu {
         this.sporcuTakim = sporcuTakim;
     }
 
-    public boolean isKartKullanildiMi() {
-        return kartKullanildiMi;
+    public boolean KartKullanildiMi() {
+        return kartKullanildi;
     }
 
-    public void setKartKullanildiMi(boolean kartKullanildiMi) {
-        this.kartKullanildiMi = kartKullanildiMi;
+    public void setKartKullanildi(boolean kartKullanildi) {
+        this.kartKullanildi = kartKullanildi;
     }
 
     public abstract int getTip();
