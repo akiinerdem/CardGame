@@ -60,6 +60,7 @@ public class TestSinifi {
     }
 
     private void sporculariTanimla() {
+        // UYARI: SPORCULARIN POZISYON DEGERLERINI DEGISTIRMEYIN
         Futbolcu LionelMessi = new Futbolcu("LionelMessi", "Barcelona", 96, 90, 95);
         Futbolcu CristianoRonalo = new Futbolcu("CristianoRonalo", "Juventus", 97, 92, 94);
         Futbolcu TonyKross = new Futbolcu("TonyKross", "RealMadrid", 90, 87, 89);
