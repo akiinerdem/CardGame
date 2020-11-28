@@ -1,5 +1,11 @@
 // TODO: Oyun arayuzunu tasarla
-
+// TODO: butonlarin fotograflarini degistir
+//  kart secildiginde:
+//      ortadaki kartlarin resimlerini degistir
+//      random pozisyon sec ve ortadaki labeli degistir
+//      karsilastir ve karsilastirma sonucu bir popup'ta yaz (blg veya kullanici kazandi)
+//      karsilastirma sonucuna gore alt ve ustteki skor labellerini degistir
+//      secilen kart, transparent resime donustur
 package com.company;
 
 import javax.swing.*;
