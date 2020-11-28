@@ -23,4 +23,8 @@ public class Game extends JFrame {
     private JButton button17;
     private JButton button18;
     public JPanel panelMain;
+    private JLabel skor2;
+    private JLabel skor1;
+    private JLabel Pozisyon;
+
 }
