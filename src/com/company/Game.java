@@ -1,6 +1,7 @@
 package com.company;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Game extends JFrame {
     private JButton button1;
@@ -21,4 +22,5 @@ public class Game extends JFrame {
     private JButton button16;
     private JButton button17;
     private JButton button18;
+    public JPanel panelMain;
 }
