@@ -21,6 +21,4 @@ public class Game extends JFrame {
     private JButton button16;
     private JButton button17;
     private JButton button18;
-    private JTextField textField1;
-    private JTextField textField2;
 }
