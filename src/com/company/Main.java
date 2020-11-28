@@ -25,8 +25,8 @@ public class Main {
     }
 
     private static void testSinifiTest() {
-        TestSinifi testSinifi = new TestSinifi();
-        int temp = testSinifi.oyunuBaslat();
+        OyunSinifi oyunSinifi = new OyunSinifi();
+        int temp = oyunSinifi.oyunuBaslat();
         System.out.println(temp);
     }
 }

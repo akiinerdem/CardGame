@@ -3,7 +3,7 @@ package com.company;
 import java.util.Arrays;
 import java.util.Random;
 
-public class TestSinifi {
+public class OyunSinifi {
     private Futbolcu[] futbolcular;
     private Basketbolcu[] basketbolcular;
     private final Bilgisayar bilgisayar = new Bilgisayar();
@@ -11,8 +11,11 @@ public class TestSinifi {
     private final Random random = new Random();
     private int len;
     private int kalanKartlar;
+    private Sporcu kart1;
+    private Sporcu kart2;
+    private String sonuc;
 
-    TestSinifi() {
+    OyunSinifi() {
     }
 
     private void kartlariKaristir() {
@@ -127,5 +130,73 @@ public class TestSinifi {
             // kart tipini degistiriyor
             tip = tip == 0 ? 1 : 0;
         }
+    }
+
+    public Futbolcu[] getFutbolcular() {
+        return futbolcular;
+    }
+
+    public void setFutbolcular(Futbolcu[] futbolcular) {
+        this.futbolcular = futbolcular;
+    }
+
+    public Basketbolcu[] getBasketbolcular() {
+        return basketbolcular;
+    }
+
+    public void setBasketbolcular(Basketbolcu[] basketbolcular) {
+        this.basketbolcular = basketbolcular;
+    }
+
+    public Bilgisayar getBilgisayar() {
+        return bilgisayar;
+    }
+
+    public Kullanici getKullanici() {
+        return kullanici;
+    }
+
+    public Random getRandom() {
+        return random;
+    }
+
+    public int getLen() {
+        return len;
+    }
+
+    public void setLen(int len) {
+        this.len = len;
+    }
+
+    public int getKalanKartlar() {
+        return kalanKartlar;
+    }
+
+    public void setKalanKartlar(int kalanKartlar) {
+        this.kalanKartlar = kalanKartlar;
+    }
+
+    public Sporcu getKart1() {
+        return kart1;
+    }
+
+    public void setKart1(Sporcu kart1) {
+        this.kart1 = kart1;
+    }
+
+    public Sporcu getKart2() {
+        return kart2;
+    }
+
+    public void setKart2(Sporcu kart2) {
+        this.kart2 = kart2;
+    }
+
+    public String getSonuc() {
+        return sonuc;
+    }
+
+    public void setSonuc(String sonuc) {
+        this.sonuc = sonuc;
     }
 }
