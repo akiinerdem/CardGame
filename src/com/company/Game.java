@@ -1,7 +1,9 @@
 package com.company;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
+
 
 public class Game extends JFrame {
     public JPanel panelMain;
@@ -36,6 +38,7 @@ public class Game extends JFrame {
     private JLabel Pozisyon;
     private final OyunSinifi Oyun = new OyunSinifi();
     // TODO: create setup method
+    //  Create action for button press to begin game
 
     Game() {
         setup();
@@ -48,12 +51,16 @@ public class Game extends JFrame {
         ArrayList<Sporcu> bKartlari = Oyun.getBilgisayar().getKartListesi();
         ArrayList<Sporcu> kKartlari = Oyun.getKullanici().getKartListesi();
         int len = bKartlari.size();
+        panelMain.setBackground(Color.lightGray);
+        // TODO: daha uygun bir kart fotografi sec
+        ImageIcon card = new ImageIcon("Photos/kart.png");
+        card = new ImageIcon(card.getImage().getScaledInstance(125, 188, Image.SCALE_DEFAULT));
         for (int i = 0; i < len; i++) {
             bButonlari[i].setBorderPainted(false);
             kButonlari[i].setBorderPainted(false);
             kButonlari[i].setContentAreaFilled(false);
             bButonlari[i].setContentAreaFilled(false);
-            bButonlari[i].setIcon(bKartlari.get(i).getIcon());
+            bButonlari[i].setIcon(card);
             kButonlari[i].setIcon(kKartlari.get(i).getIcon());
         }
     }

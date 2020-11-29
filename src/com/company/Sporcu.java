@@ -57,7 +57,7 @@ public abstract class Sporcu {
     public void setIcon(String icon) {
         Image image = null;
         try {
-            image = ImageIO.read(new File(icon)).getScaledInstance(128, 180, Image.SCALE_DEFAULT);
+            image = ImageIO.read(new File(icon)).getScaledInstance(125, 188, Image.SCALE_DEFAULT);
         } catch (IOException e) {
             e.printStackTrace();
         }
