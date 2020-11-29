@@ -1,3 +1,4 @@
+// TODO: add card attribute to store icon of player
 package com.company;
 
 import java.util.ArrayList;

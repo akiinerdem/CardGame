@@ -1,4 +1,3 @@
-// TODO: Oyun arayuzunu tasarla
 // TODO: butonlarin fotograflarini degistir
 //  kart secildiginde:
 //      ortadaki kartlarin resimlerini degistir
@@ -22,11 +21,5 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-    }
-
-    private static void testSinifiTest() {
-        OyunSinifi oyunSinifi = new OyunSinifi();
-        int temp = oyunSinifi.oyunuBaslat();
-        System.out.println(temp);
     }
 }

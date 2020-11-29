@@ -1,9 +1,9 @@
 package com.company;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class Game extends JFrame {
+    public JPanel panelMain;
     private JButton button1;
     private JButton button2;
     private JButton button3;
@@ -22,9 +22,12 @@ public class Game extends JFrame {
     private JButton button16;
     private JButton button17;
     private JButton button18;
-    public JPanel panelMain;
     private JLabel skor2;
     private JLabel skor1;
     private JLabel Pozisyon;
 
+    // TODO: create setup method
+    Game() {
+
+    }
 }

@@ -22,7 +22,6 @@ public class Kullanici extends Oyuncu {
         System.out.println("oynamak istedigin kartin indisini yazin: ");
         Scanner scanner = new Scanner(System.in);
         int kartIndis = scanner.nextInt();
-        // TODO: kart girdisinin dogru araliginda olmasini kontrol et
 
         ArrayList<Sporcu> kartListesi = getKartListesi();
         Sporcu kart = kartListesi.get(kartIndis);
