@@ -22,4 +22,10 @@ public class Main {
         frame.pack();
         frame.setVisible(true);
     }
+
+    private static void testSinifiTest() {
+        OyunSinifi oyunSinifi = new OyunSinifi();
+        int temp = oyunSinifi.oyunuBaslat();
+        System.out.println(temp);
+    }
 }

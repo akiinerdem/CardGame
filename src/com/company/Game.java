@@ -1,6 +1,7 @@
 package com.company;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class Game extends JFrame {
     public JPanel panelMain;
@@ -33,10 +34,27 @@ public class Game extends JFrame {
     private JLabel skor1; // Bilgisayar skoru
     private JLabel skor2; // Kullanici skoru
     private JLabel Pozisyon;
-
+    private final OyunSinifi Oyun = new OyunSinifi();
     // TODO: create setup method
 
     Game() {
+        setup();
+    }
 
+    private void setup() {
+        int temp = Oyun.oyunuBaslat();
+        if (temp == 1)
+            System.exit(1);
+        ArrayList<Sporcu> bKartlari = Oyun.getBilgisayar().getKartListesi();
+        ArrayList<Sporcu> kKartlari = Oyun.getKullanici().getKartListesi();
+        int len = bKartlari.size();
+        for (int i = 0; i < len; i++) {
+            bButonlari[i].setBorderPainted(false);
+            kButonlari[i].setBorderPainted(false);
+            kButonlari[i].setContentAreaFilled(false);
+            bButonlari[i].setContentAreaFilled(false);
+            bButonlari[i].setIcon(bKartlari.get(i).getIcon());
+            kButonlari[i].setIcon(kKartlari.get(i).getIcon());
+        }
     }
 }

@@ -108,7 +108,6 @@ public class OyunSinifi {
     public int oyunuBaslat() {
         sporculariTanimla();
         kartlariDagit();
-        oyunDongusu();
         return 0;
     }
 

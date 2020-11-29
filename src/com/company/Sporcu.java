@@ -1,6 +1,10 @@
 package com.company;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 public abstract class Sporcu {
     private String sporcuIsim;
@@ -51,6 +55,13 @@ public abstract class Sporcu {
     }
 
     public void setIcon(String icon) {
-        this.icon = new ImageIcon(icon);
+        Image image = null;
+        try {
+            image = ImageIO.read(new File(icon)).getScaledInstance(128, 180, Image.SCALE_DEFAULT);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assert image != null;
+        this.icon = new ImageIcon(image);
     }
 }
