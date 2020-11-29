@@ -2,6 +2,7 @@ package com.company;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 
@@ -52,16 +53,29 @@ public class Game extends JFrame {
         ArrayList<Sporcu> kKartlari = Oyun.getKullanici().getKartListesi();
         int len = bKartlari.size();
         panelMain.setBackground(Color.lightGray);
-        // TODO: daha uygun bir kart fotografi sec
         ImageIcon card = new ImageIcon("Photos/kart.png");
         card = new ImageIcon(card.getImage().getScaledInstance(125, 188, Image.SCALE_DEFAULT));
+        // Kart fotograflari atama
         for (int i = 0; i < len; i++) {
             bButonlari[i].setBorderPainted(false);
-            kButonlari[i].setBorderPainted(false);
-            kButonlari[i].setContentAreaFilled(false);
             bButonlari[i].setContentAreaFilled(false);
             bButonlari[i].setIcon(card);
+            kButonlari[i].addActionListener(this::kartSec);
+
+            kButonlari[i].setBorderPainted(false);
+            kButonlari[i].setContentAreaFilled(false);
             kButonlari[i].setIcon(kKartlari.get(i).getIcon());
         }
+        button17.setBorderPainted(false);
+        button17.setContentAreaFilled(false);
+        button17.setIcon(card);
+
+        button18.setBorderPainted(false);
+        button18.setContentAreaFilled(false);
+        button18.setIcon(card);
+    }
+
+    private void kartSec(ActionEvent e) {
+        System.out.println("kart basildi");
     }
 }
