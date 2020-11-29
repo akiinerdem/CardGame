@@ -76,7 +76,7 @@ public class OyunSinifi {
         Basketbolcu MichaelJordan = new Basketbolcu("MichaelJordan", "Bulls", 96, 96, 96, "Photos/Jordan.png");
         Basketbolcu StephCurry = new Basketbolcu("StephCurry", "GoldenState", 95, 97, 95, "Photos/Curry .png");
         Basketbolcu ShaquilleONeal = new Basketbolcu("ShaquilleONeal", "Lakers", 92, 93, 91, "Photos/O'neal.png");
-        Basketbolcu RussellWestbrook= new Basketbolcu("RussellWestbrook", "Houston", 94, 95, 96, "Photos/westbrook.png");
+        Basketbolcu RussellWestbrook = new Basketbolcu("RussellWestbrook", "Houston", 94, 95, 96, "Photos/westbrook.png");
         Basketbolcu ScottiePippen = new Basketbolcu("ScottiePippen", "Bulls", 93, 91, 90, "Photos/pippen.png");
         Basketbolcu JamesHarden = new Basketbolcu("JamesHarden", "Houston", 94, 91, 93, "Photos/harden.png");
         futbolcular = new Futbolcu[]{LionelMessi, CristianoRonalo, TonyKross, MohammedSalah, RobertLewandowski, MarcoReus, NeymarJR, KarimBenzema};
@@ -97,11 +97,13 @@ public class OyunSinifi {
 
     private void kartlariDagit() {
         kartlariKaristir();
-        for (int i = 0; i < len; i += 2) {
+        for (int i = 0; i < len / 2; i++) {
             bilgisayar.getKartListesi().add(futbolcular[i]);
+            kullanici.getKartListesi().add(futbolcular[i]);
+        }
+        for (int i = len/2; i < len; i++) {
             bilgisayar.getKartListesi().add(basketbolcular[i]);
-            kullanici.getKartListesi().add(futbolcular[i + 1]);
-            kullanici.getKartListesi().add(basketbolcular[i + 1]);
+            kullanici.getKartListesi().add(basketbolcular[i]);
         }
     }
 
