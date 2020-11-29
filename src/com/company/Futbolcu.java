@@ -1,5 +1,7 @@
 package com.company;
 
+import javax.swing.Icon;
+
 public class Futbolcu extends Sporcu {
 
     private int penalti;
@@ -11,9 +13,17 @@ public class Futbolcu extends Sporcu {
         super();
         System.out.println("futbolcu olusturuldu");
     }
+
+    Futbolcu(String sporcuIsim, String sporcuTakim, int penalti, int serbestVurus, int kaleciKarsiKarsiya, String icon) {
+        super(sporcuIsim, sporcuTakim, icon);
+        setKaleciKarsiKarsiya(kaleciKarsiKarsiya);
+        setPenalti(penalti);
+        setSerbestVurus(serbestVurus);
+        System.out.println("parametreli futbolcu olusturuldu");
+    }
+
     @Override
     public int[] sporcuPuaniGoster() {
-
         return new int[]{getPenalti(), getSerbestVurus(), getKaleciKarsiKarsiya()};
     }
 
@@ -22,15 +32,6 @@ public class Futbolcu extends Sporcu {
         // class tipini belirlemek icin. Futbolcunun tipi 0'dir
         return 0;
     }
-
-    Futbolcu(String sporcuIsim, String sporcuTakim, int penalti, int serbestVurus, int kaleciKarsiKarsiya) {
-        super(sporcuIsim, sporcuTakim);
-        setKaleciKarsiKarsiya(kaleciKarsiKarsiya);
-        setPenalti(penalti);
-        setSerbestVurus(serbestVurus);
-        System.out.println("parametreli futbolcu olusturuldu");
-    }
-
 
     public int getSerbestVurus() {
         return serbestVurus;

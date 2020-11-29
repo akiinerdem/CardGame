@@ -1,7 +1,8 @@
 package com.company;
 
-public class Basketbolcu extends Sporcu {
+import javax.swing.Icon;
 
+public class Basketbolcu extends Sporcu {
 
     private int serbestAtis;
     private int ucluk;
@@ -13,20 +14,24 @@ public class Basketbolcu extends Sporcu {
         System.out.println("Basketbolccu olusturuldu");
     }
 
-    Basketbolcu(String sporcuTakim, String sporcuIsim, int serbestAtis, int ucluk, int ikilik) {
-        super(sporcuTakim, sporcuIsim);
+    Basketbolcu(String sporcuIsim, String sporcuTakim, int serbestAtis, int ucluk, int ikilik, String icon) {
+        super(sporcuIsim, sporcuTakim, icon);
         setSerbestAtis(serbestAtis);
         setIkilik(ikilik);
         setUcluk(ucluk);
         System.out.println("Parametreli bir basketbolcu olusturuldu");
     }
 
-
     @Override
     public int[] sporcuPuaniGoster() {
         return new int[]{getSerbestAtis(), getIkilik(), getUcluk()};
     }
 
+    @Override
+    public int getTip() {
+        // class tipini belirlemek icin. basketbolcunun tipi 1'dir
+        return 1;
+    }
 
     public int getUcluk() {
         return ucluk;
@@ -52,9 +57,5 @@ public class Basketbolcu extends Sporcu {
         this.serbestAtis = serbestAtis;
     }
 
-    public int getTip() {
-        // class tipini belirlemek icin. basketbolcunun tipi 1'dir
-        return 1;
-    }
 
 }

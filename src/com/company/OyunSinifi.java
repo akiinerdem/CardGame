@@ -63,22 +63,22 @@ public class OyunSinifi {
     }
 
     private void sporculariTanimla() {
-        Futbolcu LionelMessi = new Futbolcu("LionelMessi", "Barcelona", 96, 90, 95);
-        Futbolcu CristianoRonalo = new Futbolcu("CristianoRonalo", "Juventus", 97, 92, 94);
-        Futbolcu TonyKross = new Futbolcu("TonyKross", "RealMadrid", 90, 87, 89);
-        Futbolcu MohammedSalah = new Futbolcu("MohammedSalah", "Liverpool", 93, 89, 93);
-        Futbolcu RobertLewandowski = new Futbolcu("RobertLewandowski", "BayernMunih", 93, 86, 96);
-        Futbolcu MarcoReus = new Futbolcu("MarcoReus", "BorussiaDortmund", 91, 90, 89);
-        Futbolcu NeymarJR = new Futbolcu("NeymarJR", "ParisSaintGermain", 95, 95, 94);
-        Futbolcu KarimBenzema = new Futbolcu("KarimBenzema", "RealMadrid", 89, 87, 93);
-        Basketbolcu KobeBryant = new Basketbolcu("KobeBryant", "Lakers", 99, 99, 99);
-        Basketbolcu LebronJames = new Basketbolcu("LebronJames", "Lakers", 95, 93, 97);
-        Basketbolcu MichaelJordan = new Basketbolcu("MichaelJordan", "Bulls", 96, 96, 96);
-        Basketbolcu StephCurry = new Basketbolcu("StephCurry", "GoldenState", 95, 97, 95);
-        Basketbolcu ShaquilleONeal = new Basketbolcu("ShaquilleONeal", "Lakers", 92, 93, 91);
-        Basketbolcu RussellWestbrook= new Basketbolcu("RussellWestbrook", "Houston", 94, 95, 96);
-        Basketbolcu ScottiePippen = new Basketbolcu("ScottiePippen", "Bulls", 93, 91, 90);
-        Basketbolcu JamesHarden = new Basketbolcu("JamesHarden", "Houston", 94, 91, 93);
+        Futbolcu LionelMessi = new Futbolcu("LionelMessi", "Barcelona", 96, 90, 95, "Photos/Messi.png");
+        Futbolcu CristianoRonalo = new Futbolcu("CristianoRonalo", "Juventus", 97, 92, 94, "Photos/Ronaldo.png");
+        Futbolcu TonyKross = new Futbolcu("TonyKross", "RealMadrid", 90, 87, 89, "Photos/Kroos.png");
+        Futbolcu MohammedSalah = new Futbolcu("MohammedSalah", "Liverpool", 93, 89, 93, "Photos/Salah.png");
+        Futbolcu RobertLewandowski = new Futbolcu("RobertLewandowski", "BayernMunih", 93, 86, 96, "Photos/Lewandowski.png");
+        Futbolcu MarcoReus = new Futbolcu("MarcoReus", "BorussiaDortmund", 91, 90, 89, "Photos/Reus.png");
+        Futbolcu NeymarJR = new Futbolcu("NeymarJR", "ParisSaintGermain", 95, 95, 94, "Photos/neymar.png");
+        Futbolcu KarimBenzema = new Futbolcu("KarimBenzema", "RealMadrid", 89, 87, 93, "Photos/Benzema.png");
+        Basketbolcu KobeBryant = new Basketbolcu("KobeBryant", "Lakers", 99, 99, 99, "Photos/kobe.png");
+        Basketbolcu LebronJames = new Basketbolcu("LebronJames", "Lakers", 95, 93, 97, "Photos/lebron.png");
+        Basketbolcu MichaelJordan = new Basketbolcu("MichaelJordan", "Bulls", 96, 96, 96, "Photos/Jordan.png");
+        Basketbolcu StephCurry = new Basketbolcu("StephCurry", "GoldenState", 95, 97, 95, "Photos/Curry .png");
+        Basketbolcu ShaquilleONeal = new Basketbolcu("ShaquilleONeal", "Lakers", 92, 93, 91, "Photos/O'neal.png");
+        Basketbolcu RussellWestbrook= new Basketbolcu("RussellWestbrook", "Houston", 94, 95, 96, "Photos/westbrook.png");
+        Basketbolcu ScottiePippen = new Basketbolcu("ScottiePippen", "Bulls", 93, 91, 90, "Photos/pippen.png");
+        Basketbolcu JamesHarden = new Basketbolcu("JamesHarden", "Houston", 94, 91, 93, "Photos/harden.png");
         futbolcular = new Futbolcu[]{LionelMessi, CristianoRonalo, TonyKross, MohammedSalah, RobertLewandowski, MarcoReus, NeymarJR, KarimBenzema};
         basketbolcular = new Basketbolcu[]{KobeBryant, LebronJames, MichaelJordan, StephCurry, ShaquilleONeal, RussellWestbrook, ScottiePippen, JamesHarden};
         kartlariKontrolEt();

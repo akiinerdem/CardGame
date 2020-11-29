@@ -1,13 +1,17 @@
 package com.company;
 
+import javax.swing.*;
+
 public abstract class Sporcu {
     private String sporcuIsim;
     private String sporcuTakim;
+    private Icon icon;
     private boolean kartKullanildi = false;
 
-    Sporcu(String sporcuIsim, String sporcuTakim) {
+    Sporcu(String sporcuIsim, String sporcuTakim, String icon) {
         setsporcuIsim(sporcuIsim);
         setsporcuTakim(sporcuTakim);
+        setIcon(icon);
     }
 
     Sporcu() {
@@ -41,4 +45,12 @@ public abstract class Sporcu {
     }
 
     public abstract int getTip();
+
+    public Icon getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = new ImageIcon(icon);
+    }
 }
