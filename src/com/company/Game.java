@@ -38,6 +38,10 @@ public class Game extends JFrame {
     private JLabel skor2; // Kullanici skoru
     private JLabel Pozisyon;
     private final OyunSinifi Oyun = new OyunSinifi();
+    private Sporcu kart1;
+    private Sporcu kart2;
+    private final Bilgisayar bilgisayar = Oyun.getBilgisayar();
+    private final Kullanici kullanici = Oyun.getKullanici();
     // TODO: create setup method
     //  Create action for button press to begin game
 
@@ -59,7 +63,7 @@ public class Game extends JFrame {
         for (int i = 0; i < len; i++) {
             bButonlari[i].setBorderPainted(false);
             bButonlari[i].setContentAreaFilled(false);
-            bButonlari[i].setIcon(card);
+            bButonlari[i].setIcon(bKartlari.get(i).getIcon());
             kButonlari[i].addActionListener(this::kartSec);
 
             kButonlari[i].setBorderPainted(false);
@@ -76,6 +80,16 @@ public class Game extends JFrame {
     }
 
     private void kartSec(ActionEvent e) {
-        System.out.println("kart basildi");
+        JButton button = (JButton) e.getSource();
+        int indis = Integer.parseInt(button.getName());
+
+        kullanici.setKartIndis(indis);
+        kart2 = kullanici.KartSec();
+        bilgisayar.setTip(kart2.getTip());
+        kart1 = bilgisayar.KartSec();
+        button17.setIcon(kart1.getIcon());
+        button18.setIcon(kart2.getIcon());
+        button.setIcon(null);
+
     }
 }

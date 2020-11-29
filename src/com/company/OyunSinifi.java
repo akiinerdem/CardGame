@@ -99,11 +99,11 @@ public class OyunSinifi {
         kartlariKaristir();
         for (int i = 0; i < len / 2; i++) {
             bilgisayar.getKartListesi().add(futbolcular[i]);
-            kullanici.getKartListesi().add(futbolcular[i]);
+            kullanici.getKartListesi().add(basketbolcular[i]);
         }
         for (int i = len/2; i < len; i++) {
             bilgisayar.getKartListesi().add(basketbolcular[i]);
-            kullanici.getKartListesi().add(basketbolcular[i]);
+            kullanici.getKartListesi().add(futbolcular[i]);
         }
     }
 
@@ -120,8 +120,8 @@ public class OyunSinifi {
         String[] tipler = {"Futbolcular", "Basketbolcular"};
         while (kalanKartlar != 0) {
             System.out.println(tipler[tip]);
-            kart1 = bilgisayar.KartSec(tip);
-            kart2 = kullanici.KartSec(tip);
+            kart1 = bilgisayar.KartSec();
+            kart2 = kullanici.KartSec();
             System.out.println(kart1.getsporcuIsim() + ": " + kart1.getsporcuTakim() + " :" + Arrays.toString(kart1.sporcuPuaniGoster()));
             System.out.println(kart2.getsporcuIsim() + ": " + kart2.getsporcuTakim() + " :" + Arrays.toString(kart2.sporcuPuaniGoster()));
             kartlariKarsilastir(kart1, kart2, tip);

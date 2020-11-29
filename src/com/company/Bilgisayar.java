@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Bilgisayar extends Oyuncu {
+    private int tip;
 
     // Parametresiz yapilandirici
     Bilgisayar() {
@@ -17,8 +18,16 @@ public class Bilgisayar extends Oyuncu {
         System.out.println("Parametreli Bilgisayar sinif yapilandiricisi cagirildi");
     }
 
+    public int getTip() {
+        return tip;
+    }
+
+    public void setTip(int tip) {
+        this.tip = tip;
+    }
+
     @Override
-    public Sporcu KartSec(int tip) {
+    public Sporcu KartSec() {
         Random random = new Random();
         // kartlistesinden rastgele eleman secilir
         ArrayList<Sporcu> kartListesi = getKartListesi();

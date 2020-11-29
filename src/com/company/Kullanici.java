@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Kullanici extends Oyuncu {
+    int kartIndis;
     // Parametresiz yapilandirici
     Kullanici() {
         super();
@@ -17,19 +18,17 @@ public class Kullanici extends Oyuncu {
     }
 
     @Override
-    public Sporcu KartSec(int tip) {
+    public Sporcu KartSec() {
         // TODO: arayuz bitince, arayuzle calisacak sekilde yaz
-        System.out.println("oynamak istedigin kartin indisini yazin: ");
-        Scanner scanner = new Scanner(System.in);
-        int kartIndis = scanner.nextInt();
-
         ArrayList<Sporcu> kartListesi = getKartListesi();
-        Sporcu kart = kartListesi.get(kartIndis);
-        while (kart.getTip() != tip || kart.KartKullanildiMi()) {
-            System.out.println("Yanlis sporcu tipinden bir kart sectiniz. Lutfen baska bir kart secin: ");
-            kartIndis = scanner.nextInt();
-            kart = kartListesi.get(kartIndis);
-        }
-        return kart;
+        return kartListesi.get(kartIndis);
+    }
+
+    public int getKartIndis() {
+        return kartIndis;
+    }
+
+    public void setKartIndis(int kartIndis) {
+        this.kartIndis = kartIndis;
     }
 }
