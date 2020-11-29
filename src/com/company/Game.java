@@ -22,15 +22,15 @@ public class Game extends JFrame {
     private final JButton[] kButonlari = {button1, button2, button3, button4, button5, button6, button7, button8};
 
     // BILGISAYAR KARTLARI
-    private JButton button9;
-    private JButton button10;
-    private JButton button11;
-    private JButton button12;
-    private JButton button13;
-    private JButton button14;
-    private JButton button15;
     private JButton button16;
-    private final JButton[] bButonlari = {button9, button10, button11, button12, button13, button14, button15, button16};
+    private JButton button15;
+    private JButton button14;
+    private JButton button13;
+    private JButton button12;
+    private JButton button11;
+    private JButton button10;
+    private JButton button9;
+    private final JButton[] bButonlari = {button16, button15, button14, button13, button12, button11, button10, button9};
     private JButton button17; // Bilgisayar karti (kart1)
     private JButton button18; // Kullanici karti (kart2)
 
@@ -42,6 +42,8 @@ public class Game extends JFrame {
     private Sporcu kart2;
     private final Bilgisayar bilgisayar = Oyun.getBilgisayar();
     private final Kullanici kullanici = Oyun.getKullanici();
+    ImageIcon kart = new ImageIcon("Photos/kart.png");
+    ImageIcon bosKart = new ImageIcon("Photos/boskart.png");
     // TODO: create setup method
     //  Create action for button press to begin game
 
@@ -57,8 +59,9 @@ public class Game extends JFrame {
         ArrayList<Sporcu> kKartlari = Oyun.getKullanici().getKartListesi();
         int len = bKartlari.size();
         panelMain.setBackground(Color.lightGray);
-        ImageIcon card = new ImageIcon("Photos/kart.png");
-        card = new ImageIcon(card.getImage().getScaledInstance(125, 188, Image.SCALE_DEFAULT));
+        kart = new ImageIcon(kart.getImage().getScaledInstance(125, 188, Image.SCALE_DEFAULT));
+        bosKart = new ImageIcon(bosKart.getImage().getScaledInstance(125, 188, Image.SCALE_DEFAULT));
+
         // Kart fotograflari atama
         for (int i = 0; i < len; i++) {
             bButonlari[i].setBorderPainted(false);
@@ -72,24 +75,39 @@ public class Game extends JFrame {
         }
         button17.setBorderPainted(false);
         button17.setContentAreaFilled(false);
-        button17.setIcon(card);
+        button17.setIcon(kart);
 
         button18.setBorderPainted(false);
         button18.setContentAreaFilled(false);
-        button18.setIcon(card);
+        button18.setIcon(kart);
     }
 
     private void kartSec(ActionEvent e) {
-        JButton button = (JButton) e.getSource();
-        int indis = Integer.parseInt(button.getName());
-
+        JButton kKart = (JButton) e.getSource();
+        int indis = Integer.parseInt(kKart.getName());
+        // kart onceden secildiyse
+        if (kullanici.getKartListesi().get(indis).KartKullanildiMi())
+            return;
+        JButton bKart = bButonlari[7-indis];
+        // kartlari sec ve kart goruntuleri degistir
         kullanici.setKartIndis(indis);
         kart2 = kullanici.KartSec();
         bilgisayar.setTip(kart2.getTip());
         kart1 = bilgisayar.KartSec();
         button17.setIcon(kart1.getIcon());
         button18.setIcon(kart2.getIcon());
-        button.setIcon(null);
+        kKart.setIcon(bosKart);
+        kKart.removeActionListener(this::kartSec);
+        bKart.setIcon(bosKart);
+        bKart.removeActionListener(this::kartSec);
+
+        // Kartlari karsilastir
+        // TODO: do the karsilastirma and store it in a variable
+        // TODO: change pozisyon label
+        // TODO: activate a popup to announce the outcome
+        // TODO: change the score labels
+        // TODO: change the middle cards to ? cards
+
 
     }
 }

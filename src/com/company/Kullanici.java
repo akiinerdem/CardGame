@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Kullanici extends Oyuncu {
     int kartIndis;
+
     // Parametresiz yapilandirici
     Kullanici() {
         super();
@@ -21,7 +22,10 @@ public class Kullanici extends Oyuncu {
     public Sporcu KartSec() {
         // TODO: arayuz bitince, arayuzle calisacak sekilde yaz
         ArrayList<Sporcu> kartListesi = getKartListesi();
-        return kartListesi.get(kartIndis);
+
+        Sporcu kart = kartListesi.get(kartIndis);
+        kart.setKartKullanildi(true);
+        return kart;
     }
 
     public int getKartIndis() {

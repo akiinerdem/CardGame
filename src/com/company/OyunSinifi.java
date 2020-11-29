@@ -37,28 +37,28 @@ public class OyunSinifi {
         }
     }
 
-    private void kartlariKarsilastir(Sporcu kart1, Sporcu kart2, int tip) {
+    public void kartlariKarsilastir(Sporcu kart1, Sporcu kart2, int tip) {
         int[] ozellikler1 = kart1.sporcuPuaniGoster();
         int[] ozellikler2 = kart2.sporcuPuaniGoster();
+        String[][] pozisyonlar = new String[2][3];
+        pozisyonlar[0][0] = "Penalti pozisyon secildi";
+        pozisyonlar[0][1] = "Serbest vurus pozisyon secildi";
+        pozisyonlar[0][2] = "Kaleci karsi karsiya pozisyon secildi";
+
+        pozisyonlar[1][0] = "Serbest atis pozisyon secildi";
+        pozisyonlar[1][1] = "Ikilik pozisyon secildi";
+        pozisyonlar[1][2] = "Ucluk pozisyon secildi";
+
         int prandom = random.nextInt(3);
         System.out.println(prandom + " ozellik kontrol ediliyor");
         // TODO: iki farkli tip icin farkli seyler yap
-        if (tip == 0) {
-            if (ozellikler1[prandom] > ozellikler2[prandom]) {
-                System.out.println("Kart1 kazandi");
-            } else if (ozellikler1[prandom] < ozellikler2[prandom]) {
-                System.out.println("Kart2 kazandi");
-            } else {
-                System.out.println("Esitlik");
-            }
-        } else if (tip == 1) {
-            if (ozellikler1[prandom] > ozellikler2[prandom]) {
-                System.out.println("Kart1 kazandi");
-            } else if (ozellikler1[prandom] < ozellikler2[prandom]) {
-                System.out.println("Kart2 kazandi");
-            } else {
-                System.out.println("Esitlik");
-            }
+        // Futbolcu ise
+        if (ozellikler1[prandom] > ozellikler2[prandom]) {
+            sonuc = "Bilgisayar kazandi. Bilgisayar 10 puan alir";
+        } else if (ozellikler1[prandom] < ozellikler2[prandom]) {
+            sonuc = "Kullanici kazandi. Kullanici 10 puan alir";
+        } else {
+            sonuc = "Esitlik. Hic kimse puan alamaz";
         }
     }
 
@@ -101,9 +101,9 @@ public class OyunSinifi {
             bilgisayar.getKartListesi().add(futbolcular[i]);
             kullanici.getKartListesi().add(basketbolcular[i]);
         }
-        for (int i = len/2; i < len; i++) {
-            bilgisayar.getKartListesi().add(basketbolcular[i]);
+        for (int i = len / 2; i < len; i++) {
             kullanici.getKartListesi().add(futbolcular[i]);
+            bilgisayar.getKartListesi().add(basketbolcular[i]);
         }
     }
 
