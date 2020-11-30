@@ -36,16 +36,16 @@ public class Game extends JFrame {
     private JButton button18; // Bilgisayar karti (kart1)
 
     private JLabel skor1; // Bilgisayar skoru
-    private int bSkor = 0;
     private JLabel skor2; // Kullanici skoru
-    private int kSkor = 0;
     private JLabel Pozisyon;
     private JLabel Kullanici;
     private JLabel Bilgisayar;
     private JLabel Sonuc;
     private final OyunSinifi Oyun = new OyunSinifi();
     private final Bilgisayar bilgisayar = Oyun.getBilgisayar();
+    private int bSkor = bilgisayar.getSkor();
     private final Kullanici kullanici = Oyun.getKullanici();
+    private int kSkor = kullanici.getSkor();
     private ImageIcon kart = new ImageIcon("Photos/kart.png");
     private ImageIcon bosKart = new ImageIcon("Photos/boskart.png");
     private int tip = -1;

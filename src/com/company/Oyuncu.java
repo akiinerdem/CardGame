@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public abstract class Oyuncu {
     private int oyuncuID;
     private String oyuncuAdi;
-    private int skor;
+    private int skor = 0;
     private ArrayList<Sporcu> kartListesi = new ArrayList<>();
 
     // Parametresiz yapilandirici
