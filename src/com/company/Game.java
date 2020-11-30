@@ -66,7 +66,7 @@ public class Game extends JFrame {
         for (int i = 0; i < len; i++) {
             bButonlari[i].setBorderPainted(false);
             bButonlari[i].setContentAreaFilled(false);
-            bButonlari[i].setIcon(bKartlari.get(i).getIcon());
+            bButonlari[i].setIcon(kart);
             kButonlari[i].addActionListener(this::kartSec);
 
             kButonlari[i].setBorderPainted(false);
@@ -85,17 +85,18 @@ public class Game extends JFrame {
     private void kartSec(ActionEvent e) {
         JButton kKart = (JButton) e.getSource();
         int indis = Integer.parseInt(kKart.getName());
-        // kart onceden secildiyse
+        // kart onceden secildiyse bir sey yapma
         if (kullanici.getKartListesi().get(indis).KartKullanildiMi())
             return;
         JButton bKart = bButonlari[7-indis];
-        // kartlari sec ve kart goruntuleri degistir
+        // kartlari sec
         kullanici.setKartIndis(indis);
         kart2 = kullanici.KartSec();
         bilgisayar.setTip(kart2.getTip());
         kart1 = bilgisayar.KartSec();
         button17.setIcon(kart1.getIcon());
         button18.setIcon(kart2.getIcon());
+        // goruntuleri degistir
         kKart.setIcon(bosKart);
         kKart.removeActionListener(this::kartSec);
         bKart.setIcon(bosKart);

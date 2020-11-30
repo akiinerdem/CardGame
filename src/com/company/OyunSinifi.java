@@ -13,7 +13,6 @@ public class OyunSinifi {
     private int kalanKartlar;
     private Sporcu kart1;
     private Sporcu kart2;
-    private String sonuc;
 
     OyunSinifi() {
     }
@@ -37,9 +36,14 @@ public class OyunSinifi {
         }
     }
 
-    public void kartlariKarsilastir(Sporcu kart1, Sporcu kart2, int tip) {
+    public String[] kartlariKarsilastir(Sporcu kart1, Sporcu kart2) {
+        // take 2 cards
+        // return randomly selected position, and who won as strings
         int[] ozellikler1 = kart1.sporcuPuaniGoster();
         int[] ozellikler2 = kart2.sporcuPuaniGoster();
+        int tip = kart1.getTip();
+        String pozisyon;
+        String sonuc;
         String[][] pozisyonlar = new String[2][3];
         pozisyonlar[0][0] = "Penalti pozisyon secildi";
         pozisyonlar[0][1] = "Serbest vurus pozisyon secildi";
@@ -60,6 +64,8 @@ public class OyunSinifi {
         } else {
             sonuc = "Esitlik. Hic kimse puan alamaz";
         }
+        pozisyon = pozisyonlar[tip][prandom];
+        return new String[]{pozisyon, sonuc};
     }
 
     private void sporculariTanimla() {
@@ -111,26 +117,6 @@ public class OyunSinifi {
         sporculariTanimla();
         kartlariDagit();
         return 0;
-    }
-
-    private void oyunDongusu() {
-        Sporcu kart1;
-        Sporcu kart2;
-        int tip = 0; // 0 ise futbolcu, 1 ise basketbolcu
-        String[] tipler = {"Futbolcular", "Basketbolcular"};
-        while (kalanKartlar != 0) {
-            System.out.println(tipler[tip]);
-            kart1 = bilgisayar.KartSec();
-            kart2 = kullanici.KartSec();
-            System.out.println(kart1.getsporcuIsim() + ": " + kart1.getsporcuTakim() + " :" + Arrays.toString(kart1.sporcuPuaniGoster()));
-            System.out.println(kart2.getsporcuIsim() + ": " + kart2.getsporcuTakim() + " :" + Arrays.toString(kart2.sporcuPuaniGoster()));
-            kartlariKarsilastir(kart1, kart2, tip);
-            kart1.setKartKullanildi(true);
-            kart2.setKartKullanildi(true);
-            kalanKartlar--;
-            // kart tipini degistiriyor
-            tip = tip == 0 ? 1 : 0;
-        }
     }
 
     public Futbolcu[] getFutbolcular() {
@@ -193,11 +179,4 @@ public class OyunSinifi {
         this.kart2 = kart2;
     }
 
-    public String getSonuc() {
-        return sonuc;
-    }
-
-    public void setSonuc(String sonuc) {
-        this.sonuc = sonuc;
-    }
 }
