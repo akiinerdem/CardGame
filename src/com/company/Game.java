@@ -95,19 +95,24 @@ public class Game extends JFrame {
     }
 
     private void reset() {
+        // Her turun sonunda calisacak bir fonksiyon
         String[] tipler = new String[]{"Futbolcu", "Basketbolcu"};
+        // kalan kart sayisini azalt
         kalan--;
+        // kalan kart yoksa oyunu sonlandir ve pencereyi kapat
         if (kalan == 0) {
             sonlandir();
             System.exit(0);
         }
+        // tipi degistir
         tip = tip == 0 ? 1 : 0;
+        // goruntuleri ve yazilari sifirla
         Pozisyon.setText("Lutfen bir " + tipler[tip] + " karti secin");
         Sonuc.setText(null);
         button17.setIcon(kart);
         button18.setIcon(kart);
+        // bekleme suresini bitirir
         bekle = false;
-
     }
 
     private void sonlandir() {
@@ -123,15 +128,16 @@ public class Game extends JFrame {
     }
 
     private void kartSec(ActionEvent e) {
+        // fonksiyon cagirilmamasi gerekirse (bekleme suresinde ise) bir sey yapma ve fonksiyondan cik
         if (bekle)
             return;
         JButton kKart = (JButton) e.getSource();
         int indis = Integer.parseInt(kKart.getName());
-        // kart onceden secildiyse bir sey yapma
+        // kart onceden secildiyse bir sey yapma ve fonksiyondan cik
         if (kullanici.getKartListesi().get(indis).KartKullanildiMi())
             return;
-        // Secilen kartin tipi onceki kartindan farkli oldugunu kontrol edecek if ifadesi
-        // farkliysa bir sey yapma ve fonksiyondan cik
+        // Secilen kartin tipi onceki kartla ayni, ve ilk secilen kart degilse
+        // bir sey yapma ve fonksiyondan cik
         if (kullanici.getKartListesi().get(indis).getTip() != tip && tip != -1)
             return;
 
@@ -140,8 +146,6 @@ public class Game extends JFrame {
         kullanici.setKartIndis(indis);
         Sporcu kart2 = kullanici.KartSec();
         tip = kart2.getTip();
-
-
         bilgisayar.setTip(kart2.getTip());
         Sporcu kart1 = bilgisayar.KartSec();
         button17.setIcon(kart2.getIcon());
@@ -182,6 +186,7 @@ public class Game extends JFrame {
         // 3 saniye bekle
         Timer t = new Timer(3000, (e1 -> reset()));
         t.setRepeats(false);
+        // fonksiyonun beklerken calismamasi icin bekle deger true'ya donusturulur
         bekle = true;
         t.start();
     }
