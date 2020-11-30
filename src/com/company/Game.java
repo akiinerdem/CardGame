@@ -59,7 +59,8 @@ public class Game extends JFrame {
         ArrayList<Sporcu> bKartlari = Oyun.getBilgisayar().getKartListesi();
         ArrayList<Sporcu> kKartlari = Oyun.getKullanici().getKartListesi();
         int len = bKartlari.size();
-        panelMain.setBackground(Color.lightGray);
+        Color bg = new Color(137, 207, 240);
+        panelMain.setBackground(bg);
         kart = new ImageIcon(kart.getImage().getScaledInstance(125, 188, Image.SCALE_DEFAULT));
         bosKart = new ImageIcon(bosKart.getImage().getScaledInstance(125, 188, Image.SCALE_DEFAULT));
 

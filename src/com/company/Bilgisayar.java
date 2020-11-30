@@ -38,6 +38,7 @@ public class Bilgisayar extends Oyuncu {
             kartIndis = random.nextInt(kartListesi.size());
             kart = kartListesi.get(kartIndis);
         }
+        kart.setKartKullanildi(true);
         return kart;
     }
 }
