@@ -3,6 +3,7 @@ package com.company;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 
@@ -35,7 +36,9 @@ public class Game extends JFrame {
     private JButton button18; // Bilgisayar karti (kart1)
 
     private JLabel skor1; // Bilgisayar skoru
+    private int bSkor = 0;
     private JLabel skor2; // Kullanici skoru
+    private int kSkor = 0;
     private JLabel Pozisyon;
     private JLabel Kullanici;
     private JLabel Bilgisayar;
@@ -43,8 +46,11 @@ public class Game extends JFrame {
     private final OyunSinifi Oyun = new OyunSinifi();
     private final Bilgisayar bilgisayar = Oyun.getBilgisayar();
     private final Kullanici kullanici = Oyun.getKullanici();
-    ImageIcon kart = new ImageIcon("Photos/kart.png");
-    ImageIcon bosKart = new ImageIcon("Photos/boskart.png");
+    private ImageIcon kart = new ImageIcon("Photos/kart.png");
+    private ImageIcon bosKart = new ImageIcon("Photos/boskart.png");
+    private int tip = -1;
+    private int kalan = bButonlari.length;
+    private boolean bekle = false;
     // TODO: create setup method
     //  Create action for button press to begin game
 
@@ -53,6 +59,7 @@ public class Game extends JFrame {
     }
 
     private void setup() {
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         int temp = Oyun.oyunuBaslat();
         if (temp == 1)
             System.exit(1);
@@ -75,6 +82,9 @@ public class Game extends JFrame {
             kButonlari[i].setContentAreaFilled(false);
             kButonlari[i].setIcon(kKartlari.get(i).getIcon());
         }
+        skor1.setText("Skor: 0");
+        skor2.setText("Skor: 0");
+        Pozisyon.setText("Lutfen bir kart secin");
         button17.setBorderPainted(false);
         button17.setContentAreaFilled(false);
         button17.setIcon(kart);
@@ -84,16 +94,54 @@ public class Game extends JFrame {
         button18.setIcon(kart);
     }
 
+    private void reset() {
+        String[] tipler = new String[]{"Futbolcu", "Basketbolcu"};
+        kalan--;
+        if (kalan == 0) {
+            sonlandir();
+            System.exit(0);
+        }
+        tip = tip == 0 ? 1 : 0;
+        Pozisyon.setText("Lutfen bir " + tipler[tip] + " karti secin");
+        Sonuc.setText(null);
+        button17.setIcon(kart);
+        button18.setIcon(kart);
+        bekle = false;
+
+    }
+
+    private void sonlandir() {
+        String sonDurum;
+        String mesaj = "\nOyunumuzu oynadiginiz icin tesekkurler\n-Akın ve Ali";
+        if (bSkor > kSkor)
+            sonDurum = "Bilgisayar " + bSkor + " puan ile kazandi";
+        else if (kSkor > bSkor)
+            sonDurum = "Kullanici " + bSkor + " puan ile kazandi";
+        else
+            sonDurum = "Bilgisayar: " + bSkor + "\nKullanici: " + kSkor + "\nEsitlik";
+        JOptionPane.showMessageDialog(this, sonDurum + mesaj);
+    }
+
     private void kartSec(ActionEvent e) {
+        if (bekle)
+            return;
         JButton kKart = (JButton) e.getSource();
         int indis = Integer.parseInt(kKart.getName());
         // kart onceden secildiyse bir sey yapma
         if (kullanici.getKartListesi().get(indis).KartKullanildiMi())
             return;
-        JButton bKart = bButonlari[7-indis];
+        // Secilen kartin tipi onceki kartindan farkli oldugunu kontrol edecek if ifadesi
+        // farkliysa bir sey yapma ve fonksiyondan cik
+        if (kullanici.getKartListesi().get(indis).getTip() != tip && tip != -1)
+            return;
+
+        JButton bKart = bButonlari[7 - indis];
         // kartlari sec
         kullanici.setKartIndis(indis);
         Sporcu kart2 = kullanici.KartSec();
+        tip = kart2.getTip();
+
+
         bilgisayar.setTip(kart2.getTip());
         Sporcu kart1 = bilgisayar.KartSec();
         button17.setIcon(kart2.getIcon());
@@ -105,13 +153,36 @@ public class Game extends JFrame {
         bKart.removeActionListener(this::kartSec);
 
         // Kartlari karsilastir
-        // TODO: do the karsilastirma and store it in a variable
-        // TODO: change pozisyon label
-        // TODO: activate a popup to announce the outcome
-        // TODO: change the score labels
-        // TODO: change the middle cards to ? cards
-        String[] karsilastirma = Oyun.kartlariKarsilastir(kart1, kart2);
-        Pozisyon.setText(karsilastirma[0]);
-        Sonuc.setText(karsilastirma[1]);
+        String[][] pozisyonlar = new String[2][3];
+        String[] sonuclar = new String[3];
+        pozisyonlar[0][0] = "Penalti pozisyon secildi";
+        pozisyonlar[0][1] = "Serbest vurus pozisyon secildi";
+        pozisyonlar[0][2] = "Kaleci karsi karsiya pozisyon secildi";
+
+        pozisyonlar[1][0] = "Serbest atis pozisyon secildi";
+        pozisyonlar[1][1] = "Ikilik pozisyon secildi";
+        pozisyonlar[1][2] = "Ucluk pozisyon secildi";
+
+        sonuclar[0] = "Bilgisayar kazandi. Bilgisayar 10 puan alir";
+        sonuclar[1] = "Kullanici kazandi. Kullanici 10 puan alir";
+        sonuclar[2] = "Esitlik. Hic kimse puan almaz";
+        int[] karsilastirma = Oyun.kartlariKarsilastir(kart1, kart2);
+        String pozisyon = pozisyonlar[karsilastirma[0]][karsilastirma[1]];
+        String sonuc = sonuclar[karsilastirma[2]];
+        // Karsilastirma sonuclarini ekrana yaz
+        Pozisyon.setText(pozisyon);
+        Sonuc.setText(sonuc);
+        // sonuca gore puanlari dagit
+        if (karsilastirma[2] == 0)
+            bSkor += 10;
+        else if (karsilastirma[2] == 1)
+            kSkor += 10;
+        skor1.setText("Skor: " + bSkor);
+        skor2.setText("Skor: " + kSkor);
+        // 3 saniye bekle
+        Timer t = new Timer(3000, (e1 -> reset()));
+        t.setRepeats(false);
+        bekle = true;
+        t.start();
     }
 }

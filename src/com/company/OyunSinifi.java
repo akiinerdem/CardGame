@@ -36,36 +36,25 @@ public class OyunSinifi {
         }
     }
 
-    public String[] kartlariKarsilastir(Sporcu kart1, Sporcu kart2) {
+    public int[] kartlariKarsilastir(Sporcu kart1, Sporcu kart2) {
         // take 2 cards
         // return randomly selected position, and who won as strings
+        // TODO: use the skor in the oyuncu objects instead of local attribute
         int[] ozellikler1 = kart1.sporcuPuaniGoster();
         int[] ozellikler2 = kart2.sporcuPuaniGoster();
         int tip = kart1.getTip();
-        String pozisyon;
-        String sonuc;
-        String[][] pozisyonlar = new String[2][3];
-        pozisyonlar[0][0] = "Penalti pozisyon secildi";
-        pozisyonlar[0][1] = "Serbest vurus pozisyon secildi";
-        pozisyonlar[0][2] = "Kaleci karsi karsiya pozisyon secildi";
-
-        pozisyonlar[1][0] = "Serbest atis pozisyon secildi";
-        pozisyonlar[1][1] = "Ikilik pozisyon secildi";
-        pozisyonlar[1][2] = "Ucluk pozisyon secildi";
-
-        int prandom = random.nextInt(3);
-        System.out.println(prandom + " ozellik kontrol ediliyor");
-        // TODO: iki farkli tip icin farkli seyler yap
+        int pozisyon = random.nextInt(3);
+        int sonuc;
+        System.out.println(pozisyon + " ozellik kontrol ediliyor");
         // Futbolcu ise
-        if (ozellikler1[prandom] > ozellikler2[prandom]) {
-            sonuc = "Bilgisayar kazandi. Bilgisayar 10 puan alir";
-        } else if (ozellikler1[prandom] < ozellikler2[prandom]) {
-            sonuc = "Kullanici kazandi. Kullanici 10 puan alir";
+        if (ozellikler1[pozisyon] > ozellikler2[pozisyon]) {
+            sonuc = 0; // Bilgisayar kazandi. Bilgisayar 10 puan alir
+        } else if (ozellikler1[pozisyon] < ozellikler2[pozisyon]) {
+            sonuc = 1; // Kullanici kazandi. Kullanici 10 puan alir
         } else {
-            sonuc = "Esitlik. Hic kimse puan alamaz";
+            sonuc = 2; // Esitlik. Hic kimse puan almaz
         }
-        pozisyon = pozisyonlar[tip][prandom];
-        return new String[]{pozisyon, sonuc};
+        return new int[]{tip, pozisyon, sonuc};
     }
 
     private void sporculariTanimla() {
