@@ -112,11 +112,11 @@ public class Game extends JFrame {
 
     private void sonlandir() {
         String sonDurum;
-        String mesaj = "\nOyunumuzu oynadiginiz icin tesekkurler\n-Akın ve Ali";
+        String mesaj = "\nGAME OVER\n-Akın ve Ali";
         if (bSkor > kSkor)
             sonDurum = "Bilgisayar " + bSkor + " puan ile kazandi";
         else if (kSkor > bSkor)
-            sonDurum = "Kullanici " + bSkor + " puan ile kazandi";
+            sonDurum = "Kullanici " + kSkor + " puan ile kazandi";
         else
             sonDurum = "Bilgisayar: " + bSkor + "\nKullanici: " + kSkor + "\nEsitlik";
         JOptionPane.showMessageDialog(this, sonDurum + mesaj);
