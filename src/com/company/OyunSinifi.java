@@ -37,16 +37,15 @@ public class OyunSinifi {
     }
 
     public int[] kartlariKarsilastir(Sporcu kart1, Sporcu kart2) {
-        // take 2 cards
-        // return randomly selected position, and who won as strings
-        // TODO: use the skor in the oyuncu objects instead of local attribute
+        // iki kart aliyor
+        // pozisyon ve karslastirma sonucunu belirten 3 sayi donduruyor
         int[] ozellikler1 = kart1.sporcuPuaniGoster();
         int[] ozellikler2 = kart2.sporcuPuaniGoster();
         int tip = kart1.getTip();
         int pozisyon = random.nextInt(3);
         int sonuc;
         System.out.println(pozisyon + " ozellik kontrol ediliyor");
-        // Futbolcu ise
+
         if (ozellikler1[pozisyon] > ozellikler2[pozisyon]) {
             sonuc = 0; // Bilgisayar kazandi. Bilgisayar 10 puan alir
         } else if (ozellikler1[pozisyon] < ozellikler2[pozisyon]) {
