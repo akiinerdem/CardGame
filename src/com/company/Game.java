@@ -31,15 +31,16 @@ public class Game extends JFrame {
     private JButton button10;
     private JButton button9;
     private final JButton[] bButonlari = {button16, button15, button14, button13, button12, button11, button10, button9};
-    private JButton button17; // Bilgisayar karti (kart1)
-    private JButton button18; // Kullanici karti (kart2)
+    private JButton button17; // Kullanici karti (kart2)
+    private JButton button18; // Bilgisayar karti (kart1)
 
     private JLabel skor1; // Bilgisayar skoru
     private JLabel skor2; // Kullanici skoru
     private JLabel Pozisyon;
+    private JLabel Kullanici;
+    private JLabel Bilgisayar;
+    private JLabel Sonuc;
     private final OyunSinifi Oyun = new OyunSinifi();
-    private Sporcu kart1;
-    private Sporcu kart2;
     private final Bilgisayar bilgisayar = Oyun.getBilgisayar();
     private final Kullanici kullanici = Oyun.getKullanici();
     ImageIcon kart = new ImageIcon("Photos/kart.png");
@@ -91,11 +92,11 @@ public class Game extends JFrame {
         JButton bKart = bButonlari[7-indis];
         // kartlari sec
         kullanici.setKartIndis(indis);
-        kart2 = kullanici.KartSec();
+        Sporcu kart2 = kullanici.KartSec();
         bilgisayar.setTip(kart2.getTip());
-        kart1 = bilgisayar.KartSec();
-        button17.setIcon(kart1.getIcon());
-        button18.setIcon(kart2.getIcon());
+        Sporcu kart1 = bilgisayar.KartSec();
+        button17.setIcon(kart2.getIcon());
+        button18.setIcon(kart1.getIcon());
         // goruntuleri degistir
         kKart.setIcon(bosKart);
         kKart.removeActionListener(this::kartSec);
@@ -108,7 +109,8 @@ public class Game extends JFrame {
         // TODO: activate a popup to announce the outcome
         // TODO: change the score labels
         // TODO: change the middle cards to ? cards
-
-
+        String[] karsilastirma = Oyun.kartlariKarsilastir(kart1, kart2);
+        Pozisyon.setText(karsilastirma[0]);
+        Sonuc.setText(karsilastirma[1]);
     }
 }
