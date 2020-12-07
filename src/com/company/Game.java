@@ -48,9 +48,8 @@ public class Game extends JFrame {
     private ImageIcon kart = new ImageIcon("Photos/kart.png");
     private ImageIcon bosKart = new ImageIcon("Photos/boskart.png");
     private int tip = -1;
-    private int kalan = bButonlari.length;
-    private int kalanF = kalan / 2; // Kalan futbolcu kart sayisi
-    private int kalanB = kalan / 2; // kalan basketbolcu kart sayisi
+    private int[] kalan = new int[] {bButonlari.length / 2, bButonlari.length / 2};
+    private int[] karsilastirma;
     private boolean bekle = false;
 
 
@@ -97,16 +96,15 @@ public class Game extends JFrame {
     private void reset() {
         // Her turun sonunda calisacak bir fonksiyon
         String[] tipler = new String[]{"Futbolcu", "Basketbolcu"};
-        // kalan kart sayisini azalt
-        // TODO: refactor this to have kalan of 2 types, so if one finishes before the other the game can keep going
-        kalan--;
         // kalan kart yoksa oyunu sonlandir ve pencereyi kapat
-        if (kalan == 0) {
+        if (kalan[0] == 0 && kalan[1] == 0) {
             sonlandir();
             System.exit(0);
         }
         // tipi degistir
-        tip = tip == 0 ? 1 : 0;
+        // gecen el esitlik ile bitmediyse tipi degistir
+        if (karsilastirma[2] != 2)
+            tip = tip == 0 ? 1 : 0;
         // goruntuleri ve yazilari sifirla
         Pozisyon.setText("Lutfen bir " + tipler[tip] + " karti secin");
         Sonuc.setText(null);
@@ -129,6 +127,8 @@ public class Game extends JFrame {
     }
 
     private void sec(ActionEvent e) {
+        // FIXME: cards are given back, but they are removed from view
+        //  even if equality is reached
         // fonksiyon cagirilmamasi gerekirse (bekleme suresinde ise) bir sey yapma ve fonksiyondan cik
         if (bekle)
             return;
@@ -137,13 +137,10 @@ public class Game extends JFrame {
         // kart onceden secildiyse bir sey yapma ve fonksiyondan cik
         if (kullanici.getKartListesi().get(indis).KartKullanildiMi())
             return;
-        // secilen kartin tipi onceki kartla ayni ise
-        if (kullanici.getKartListesi().get(indis).getTip() != tip)
-            // TODO: add condition to allow same type if no card from other type remaining
-            // ilk secilen kart degilse
-            if (tip != -1)
-                // bir sey yapma ve fonksiyondan cik
-                return;
+        // secilen kartin tipi istenilen degilse
+        // bir sey yapma ve fonksiyondan cik
+        if (kullanici.getKartListesi().get(indis).getTip() != tip && tip != -1)
+            return;
 
         JButton bKart = bButonlari[7 - indis];
         // kartlari sec
@@ -174,19 +171,13 @@ public class Game extends JFrame {
         sonuclar[0] = "Bilgisayar kazandi. Bilgisayar 10 puan alir";
         sonuclar[1] = "Kullanici kazandi. Kullanici 10 puan alir";
         sonuclar[2] = "Esitlik. Kartlar geri verilir";
-        int[] karsilastirma = Oyun.kartlariKarsilastir(kart1, kart2);
+        karsilastirma = Oyun.kartlariKarsilastir(kart1, kart2);
         String pozisyon = pozisyonlar[karsilastirma[0]][karsilastirma[1]];
         String sonuc = sonuclar[karsilastirma[2]];
         // karsilastirma sonuclarina gore kalan kart sayisini azalt
-        // esitlik degilse
-        if (karsilastirma[2] != 2) {
-            // futbolcu oynandiysa kalan futbolcu sayisini indir
-            if (tip == 0)
-                kalanF--;
-            // basketbolcu oynandiysa kalan basketbolcu sayisini indir
-            else if (tip == 1)
-                kalanB--;
-        }
+        // esitlik degilse oynanmis kart tipinin kalan sayisini indir
+        if (karsilastirma[2] != 2)
+            kalan[tip]--;
         // Karsilastirma sonuclarini ekrana yaz
         Pozisyon.setText(pozisyon);
         Sonuc.setText(sonuc);
