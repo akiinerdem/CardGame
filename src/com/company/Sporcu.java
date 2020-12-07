@@ -13,8 +13,8 @@ public abstract class Sporcu {
     private boolean kartKullanildi = false;
 
     Sporcu(String sporcuIsim, String sporcuTakim, String icon) {
-        setsporcuIsim(sporcuIsim);
-        setsporcuTakim(sporcuTakim);
+        setSporcuIsim(sporcuIsim);
+        setSporcuTakim(sporcuTakim);
         setIcon(icon);
     }
 
@@ -24,31 +24,25 @@ public abstract class Sporcu {
     public abstract int[] sporcuPuaniGoster();
 
 
-    public String getsporcuIsim() {
+    public String getSporcuIsim() {
         return sporcuIsim;
     }
 
-    public void setsporcuIsim(String sporcuIsim) {
+    public void setSporcuIsim(String sporcuIsim) {
         this.sporcuIsim = sporcuIsim;
     }
 
-    public String getsporcuTakim() {
+    public String getSporcuTakim() {
         return sporcuTakim;
     }
 
-    public void setsporcuTakim(String sporcuTakim) {
+    public void setSporcuTakim(String sporcuTakim) {
         this.sporcuTakim = sporcuTakim;
     }
 
     public boolean KartKullanildiMi() {
         return kartKullanildi;
     }
-
-    public void setKartKullanildi(boolean kartKullanildi) {
-        this.kartKullanildi = kartKullanildi;
-    }
-
-    public abstract int getTip();
 
     public Icon getIcon() {
         return icon;
@@ -64,4 +58,12 @@ public abstract class Sporcu {
         assert image != null;
         this.icon = new ImageIcon(image);
     }
+
+    public void setKartKullanildi(boolean kartKullanildi) {
+        this.kartKullanildi = kartKullanildi;
+    }
+
+    public abstract int getTip();
+
+
 }
