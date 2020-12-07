@@ -1,6 +1,3 @@
-// TODO: Change program so that in case of equality, the cards are returned to their respective players
-//       the next selected card must be of the opposite type, UNLESS there are none remaining.
-
 package com.company;
 
 import javax.swing.*;
