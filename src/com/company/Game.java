@@ -51,7 +51,7 @@ public class Game extends JFrame {
     private ImageIcon bosKart = new ImageIcon("Photos/boskart.png");
     private Icon tempIcon;
     private int tip = -1;
-    private int[] kalan = new int[] {bButonlari.length / 2, bButonlari.length / 2};
+    private final int[] kalan = new int[] {bButonlari.length / 2, bButonlari.length / 2};
     private int[] karsilastirma;
     private boolean bekle = false;
 
@@ -200,8 +200,8 @@ public class Game extends JFrame {
             kSkor += 10;
         skor1.setText("Skor: " + bSkor);
         skor2.setText("Skor: " + kSkor);
-        // 3 saniye bekle
-        Timer t = new Timer(3000, (e1 -> reset()));
+        // 4 saniye bekle
+        Timer t = new Timer(4000, (e1 -> reset()));
         t.setRepeats(false);
         // fonksiyonun beklerken calismamasi icin bekle deger true'ya donusturulur
         bekle = true;
