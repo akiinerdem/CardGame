@@ -51,6 +51,10 @@ public class OyunSinifi {
         } else if (ozellikler1[pozisyon] < ozellikler2[pozisyon]) {
             sonuc = 1; // Kullanici kazandi. Kullanici 10 puan alir
         } else {
+            // kartlarin tekrar oynanabilmesi icin kartkullanildi ozellikler false'a
+            // cevirilir (secildiginde otomatik olarak true'ya cevrildi
+            kart1.setKartKullanildi(false);
+            kart2.setKartKullanildi(false);
             sonuc = 2; // Esitlik. Kartlar geri verilir
         }
         return new int[]{tip, pozisyon, sonuc};

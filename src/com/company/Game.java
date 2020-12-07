@@ -42,13 +42,16 @@ public class Game extends JFrame {
     private JLabel Sonuc;
     private final OyunSinifi Oyun = new OyunSinifi();
     private final Bilgisayar bilgisayar = Oyun.getBilgisayar();
+    JButton bKart;
+    JButton kKart;
     private int bSkor = bilgisayar.getSkor();
     private final Kullanici kullanici = Oyun.getKullanici();
     private int kSkor = kullanici.getSkor();
     private ImageIcon kart = new ImageIcon("Photos/kart.png");
     private ImageIcon bosKart = new ImageIcon("Photos/boskart.png");
+    private Icon tempIcon;
     private int tip = -1;
-    private int[] kalan = new int[] {bButonlari.length / 2, bButonlari.length / 2};
+    private final int[] kalan = new int[] {bButonlari.length / 2, bButonlari.length / 2};
     private int[] karsilastirma;
     private boolean bekle = false;
 
@@ -103,8 +106,16 @@ public class Game extends JFrame {
         }
         // tipi degistir
         // gecen el esitlik ile bitmediyse tipi degistir
-        if (karsilastirma[2] != 2)
+        // ve oynanmis kart tipinin kalan sayisini indir
+
+        if (karsilastirma[2] != 2) {
+            kalan[tip]--;
             tip = tip == 0 ? 1 : 0;
+        }
+        else { // oynanmis olan kartlarin fotolari geri ver
+            kKart.setIcon(tempIcon);
+            bKart.setIcon(kart);
+        }
         // goruntuleri ve yazilari sifirla
         Pozisyon.setText("Lutfen bir " + tipler[tip] + " karti secin");
         Sonuc.setText(null);
@@ -127,12 +138,12 @@ public class Game extends JFrame {
     }
 
     private void sec(ActionEvent e) {
-        // FIXME: cards are given back, but they are removed from view
-        //  even if equality is reached
+        // FIXME: final card is not properly detected and game keeps going
         // fonksiyon cagirilmamasi gerekirse (bekleme suresinde ise) bir sey yapma ve fonksiyondan cik
         if (bekle)
             return;
-        JButton kKart = (JButton) e.getSource();
+        kKart = (JButton) e.getSource();
+        tempIcon = kKart.getIcon();
         int indis = Integer.parseInt(kKart.getName());
         // kart onceden secildiyse bir sey yapma ve fonksiyondan cik
         if (kullanici.getKartListesi().get(indis).KartKullanildiMi())
@@ -142,7 +153,7 @@ public class Game extends JFrame {
         if (kullanici.getKartListesi().get(indis).getTip() != tip && tip != -1)
             return;
 
-        JButton bKart = bButonlari[7 - indis];
+        bKart = bButonlari[7 - indis];
         // kartlari sec
         kullanici.setKartIndis(indis);
         Sporcu kart2 = kullanici.KartSec();
@@ -153,9 +164,9 @@ public class Game extends JFrame {
         button18.setIcon(kart1.getIcon());
         // goruntuleri degistir
         kKart.setIcon(bosKart);
-        kKart.removeActionListener(this::sec);
+//        kKart.removeActionListener(this::sec);
         bKart.setIcon(bosKart);
-        bKart.removeActionListener(this::sec);
+//        bKart.removeActionListener(this::sec);
 
         // Kartlari karsilastir
         String[][] pozisyonlar = new String[2][3];
@@ -174,10 +185,7 @@ public class Game extends JFrame {
         karsilastirma = Oyun.kartlariKarsilastir(kart1, kart2);
         String pozisyon = pozisyonlar[karsilastirma[0]][karsilastirma[1]];
         String sonuc = sonuclar[karsilastirma[2]];
-        // karsilastirma sonuclarina gore kalan kart sayisini azalt
-        // esitlik degilse oynanmis kart tipinin kalan sayisini indir
-        if (karsilastirma[2] != 2)
-            kalan[tip]--;
+
         // Karsilastirma sonuclarini ekrana yaz
         Pozisyon.setText(pozisyon);
         Sonuc.setText(sonuc);
