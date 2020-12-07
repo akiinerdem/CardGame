@@ -3,7 +3,6 @@ package com.company;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 
@@ -50,6 +49,8 @@ public class Game extends JFrame {
     private ImageIcon bosKart = new ImageIcon("Photos/boskart.png");
     private int tip = -1;
     private int kalan = bButonlari.length;
+    private int kalanF = kalan / 2; // Kalan futbolcu kart sayisi
+    private int kalanB = kalan / 2; // kalan basketbolcu kart sayisi
     private boolean bekle = false;
 
 
@@ -75,7 +76,7 @@ public class Game extends JFrame {
             bButonlari[i].setBorderPainted(false);
             bButonlari[i].setContentAreaFilled(false);
             bButonlari[i].setIcon(kart);
-            kButonlari[i].addActionListener(this::kartSec);
+            kButonlari[i].addActionListener(this::sec);
 
             kButonlari[i].setBorderPainted(false);
             kButonlari[i].setContentAreaFilled(false);
@@ -97,6 +98,7 @@ public class Game extends JFrame {
         // Her turun sonunda calisacak bir fonksiyon
         String[] tipler = new String[]{"Futbolcu", "Basketbolcu"};
         // kalan kart sayisini azalt
+        // TODO: refactor this to have kalan of 2 types, so if one finishes before the other the game can keep going
         kalan--;
         // kalan kart yoksa oyunu sonlandir ve pencereyi kapat
         if (kalan == 0) {
@@ -126,7 +128,7 @@ public class Game extends JFrame {
         JOptionPane.showMessageDialog(this, sonDurum + mesaj);
     }
 
-    private void kartSec(ActionEvent e) {
+    private void sec(ActionEvent e) {
         // fonksiyon cagirilmamasi gerekirse (bekleme suresinde ise) bir sey yapma ve fonksiyondan cik
         if (bekle)
             return;
@@ -135,10 +137,13 @@ public class Game extends JFrame {
         // kart onceden secildiyse bir sey yapma ve fonksiyondan cik
         if (kullanici.getKartListesi().get(indis).KartKullanildiMi())
             return;
-        // Secilen kartin tipi onceki kartla ayni, ve ilk secilen kart degilse
-        // bir sey yapma ve fonksiyondan cik
-        if (kullanici.getKartListesi().get(indis).getTip() != tip && tip != -1)
-            return;
+        // secilen kartin tipi onceki kartla ayni ise
+        if (kullanici.getKartListesi().get(indis).getTip() != tip)
+            // TODO: add condition to allow same type if no card from other type remaining
+            // ilk secilen kart degilse
+            if (tip != -1)
+                // bir sey yapma ve fonksiyondan cik
+                return;
 
         JButton bKart = bButonlari[7 - indis];
         // kartlari sec
@@ -151,9 +156,9 @@ public class Game extends JFrame {
         button18.setIcon(kart1.getIcon());
         // goruntuleri degistir
         kKart.setIcon(bosKart);
-        kKart.removeActionListener(this::kartSec);
+        kKart.removeActionListener(this::sec);
         bKart.setIcon(bosKart);
-        bKart.removeActionListener(this::kartSec);
+        bKart.removeActionListener(this::sec);
 
         // Kartlari karsilastir
         String[][] pozisyonlar = new String[2][3];
@@ -168,10 +173,20 @@ public class Game extends JFrame {
 
         sonuclar[0] = "Bilgisayar kazandi. Bilgisayar 10 puan alir";
         sonuclar[1] = "Kullanici kazandi. Kullanici 10 puan alir";
-        sonuclar[2] = "Esitlik. Hic kimse puan almaz";
+        sonuclar[2] = "Esitlik. Kartlar geri verilir";
         int[] karsilastirma = Oyun.kartlariKarsilastir(kart1, kart2);
         String pozisyon = pozisyonlar[karsilastirma[0]][karsilastirma[1]];
         String sonuc = sonuclar[karsilastirma[2]];
+        // karsilastirma sonuclarina gore kalan kart sayisini azalt
+        // esitlik degilse
+        if (karsilastirma[2] != 2) {
+            // futbolcu oynandiysa kalan futbolcu sayisini indir
+            if (tip == 0)
+                kalanF--;
+            // basketbolcu oynandiysa kalan basketbolcu sayisini indir
+            else if (tip == 1)
+                kalanB--;
+        }
         // Karsilastirma sonuclarini ekrana yaz
         Pozisyon.setText(pozisyon);
         Sonuc.setText(sonuc);

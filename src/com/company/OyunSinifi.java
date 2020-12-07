@@ -51,7 +51,7 @@ public class OyunSinifi {
         } else if (ozellikler1[pozisyon] < ozellikler2[pozisyon]) {
             sonuc = 1; // Kullanici kazandi. Kullanici 10 puan alir
         } else {
-            sonuc = 2; // Esitlik. Hic kimse puan almaz
+            sonuc = 2; // Esitlik. Kartlar geri verilir
         }
         return new int[]{tip, pozisyon, sonuc};
     }
