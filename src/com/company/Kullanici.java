@@ -20,7 +20,6 @@ public class Kullanici extends Oyuncu {
 
     @Override
     public Sporcu KartSec() {
-        // TODO: arayuz bitince, arayuzle calisacak sekilde yaz
         ArrayList<Sporcu> kartListesi = getKartListesi();
 
         Sporcu kart = kartListesi.get(kartIndis);

@@ -51,8 +51,7 @@ public class Game extends JFrame {
     private int tip = -1;
     private int kalan = bButonlari.length;
     private boolean bekle = false;
-    // TODO: create setup method
-    //  Create action for button press to begin game
+
 
     Game() {
         setup();

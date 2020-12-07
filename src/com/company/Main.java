@@ -1,10 +1,6 @@
-// TODO: butonlarin fotograflarini degistir
-//  kart secildiginde:
-//      ortadaki kartlarin resimlerini degistir
-//      random pozisyon sec ve ortadaki labeli degistir
-//      karsilastir ve karsilastirma sonucu bir popup'ta yaz (blg veya kullanici kazandi)
-//      karsilastirma sonucuna gore alt ve ustteki skor labellerini degistir
-//      secilen kart, transparent resime donustur
+// TODO: Change program so that in case of equality, the cards are returned to their respective players
+//       the next selected card must be of the opposite type, UNLESS there are none remaining.
+
 package com.company;
 
 import javax.swing.*;
@@ -21,11 +17,5 @@ public class Main {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-    }
-
-    private static void testSinifiTest() {
-        OyunSinifi oyunSinifi = new OyunSinifi();
-        int temp = oyunSinifi.oyunuBaslat();
-        System.out.println(temp);
     }
 }
