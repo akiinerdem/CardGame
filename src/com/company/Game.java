@@ -51,7 +51,7 @@ public class Game extends JFrame {
     private ImageIcon bosKart = new ImageIcon("Photos/boskart.png");
     private Icon tempIcon;
     private int tip = -1;
-    private int kalan = bButonlari.length;
+    private int[] kalan = new int[] {bButonlari.length / 2, bButonlari.length / 2};
     private int[] karsilastirma;
     private boolean bekle = false;
 
@@ -101,21 +101,21 @@ public class Game extends JFrame {
         String[] tipler = new String[]{"Futbolcu", "Basketbolcu"};
         // gecen el esitlik ile bitmediyse tipi degistir
         // ve oynanmis kart tipinin kalan sayisini indir
-        tip = tip == 0 ? 1 : 0;
         if (karsilastirma[2] != 2) {
-            kalan--;
+            kalan[tip]--;
         }
         else { // oynanmis olan kartlarin fotolari geri ver
             kKart.setIcon(tempIcon);
             bKart.setIcon(kart);
         }
-        // son kart ve esitlik varsa tipi geri donustur
-        if (kalan == 1 && karsilastirma[2] == 2) {
+        tip = tip == 0 ? 1 : 0;
+        // oynanmasi gereken kart tipinden kart kalmadiysa tipi tekrar degistir
+        if (kalan[tip] == 0) {
             tip = tip == 0 ? 1 : 0;
         }
 
         // kalan kart yoksa oyunu sonlandir ve pencereyi kapat
-        if (kalan == 0) {
+        if (kalan[0] == 0 && kalan[1] == 0) {
             sonlandir();
             System.exit(0);
         }
@@ -143,10 +143,6 @@ public class Game extends JFrame {
     }
 
     private void sec(ActionEvent e) {
-        // TODO: in case of final card, keep replaying the cards, but with different
-        //  positions chosen. if they are equal on all 3, then end the game.
-        // FIXME: in cases of equality, if the same player is chosen then the compuer
-        //  also chooses the same player they did. position is still randomly chosen
         // fonksiyon cagirilmamasi gerekirse (bekleme suresinde ise) bir sey yapma ve fonksiyondan cik
         if (bekle)
             return;
