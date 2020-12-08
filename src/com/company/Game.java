@@ -104,7 +104,7 @@ public class Game extends JFrame {
         String[] tipler = new String[]{"Futbolcu", "Basketbolcu"};
         // gecen el esitlik ile bitmediyse tipi degistir
         // ve oynanmis kart tipinin kalan sayisini indir
-        if (karsilastirma[2] != 2) {
+        if (karsilastirma[1] != 2) {
             kalan[tip]--;
         }
         else { // oynanmis olan kartlarin fotolari geri ver
@@ -165,7 +165,7 @@ public class Game extends JFrame {
         kullanici.setKartIndis(indis);
         Sporcu kart2 = kullanici.KartSec();
         tip = kart2.getTip();
-        bilgisayar.setTip(kart2.getTip());
+        bilgisayar.setTip(tip);
         Sporcu kart1 = bilgisayar.KartSec();
         button17.setIcon(kart2.getIcon());
         button18.setIcon(kart1.getIcon());
@@ -190,16 +190,16 @@ public class Game extends JFrame {
         sonuclar[1] = "Kullanici kazandi. Kullanici 10 puan alir";
         sonuclar[2] = "Esitlik. Kartlar geri verilir";
         karsilastirma = Oyun.kartlariKarsilastir(kart1, kart2);
-        String pozisyon = pozisyonlar[karsilastirma[0]][karsilastirma[1]];
-        String sonuc = sonuclar[karsilastirma[2]];
+        String pozisyon = pozisyonlar[tip][karsilastirma[0]];
+        String sonuc = sonuclar[karsilastirma[1]];
 
         // Karsilastirma sonuclarini ekrana yaz
         Pozisyon.setText(pozisyon);
         Sonuc.setText(sonuc);
         // sonuca gore puanlari dagit
-        if (karsilastirma[2] == 0)
+        if (karsilastirma[1] == 0)
             bSkor += 10;
-        else if (karsilastirma[2] == 1)
+        else if (karsilastirma[1] == 1)
             kSkor += 10;
         skor1.setText("Skor: " + bSkor);
         skor2.setText("Skor: " + kSkor);

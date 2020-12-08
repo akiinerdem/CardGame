@@ -41,7 +41,6 @@ public class OyunSinifi {
         // pozisyon ve karslastirma sonucunu belirten 3 sayi donduruyor
         int[] ozellikler1 = kart1.sporcuPuaniGoster();
         int[] ozellikler2 = kart2.sporcuPuaniGoster();
-        int tip = kart1.getTip();
         int pozisyon = random.nextInt(3);
         int sonuc;
         System.out.println(pozisyon + " ozellik kontrol ediliyor");
@@ -57,7 +56,7 @@ public class OyunSinifi {
             kart2.setKartKullanildi(false);
             sonuc = 2; // Esitlik. Kartlar geri verilir
         }
-        return new int[]{tip, pozisyon, sonuc};
+        return new int[]{pozisyon, sonuc};
     }
 
     private void sporculariTanimla() {
