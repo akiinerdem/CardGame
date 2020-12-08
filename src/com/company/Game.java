@@ -120,7 +120,6 @@ public class Game extends JFrame {
         // kalan kart yoksa oyunu sonlandir ve pencereyi kapat
         if (kalan[0] == 0 && kalan[1] == 0) {
             sonlandir();
-            System.exit(0);
         }
 
 
@@ -143,6 +142,7 @@ public class Game extends JFrame {
         else
             sonDurum = "Bilgisayar: " + bSkor + "\nKullanici: " + kSkor + "\nEsitlik";
         JOptionPane.showMessageDialog(this, sonDurum + mesaj);
+        System.exit(0);
     }
 
     private void sec(ActionEvent e) {
