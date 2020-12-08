@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 
 public class Game extends JFrame {
-    public JPanel panelMain;
+    private JPanel panelMain;
 
     // KULLANICI FUTBOLCULARI
     private JButton button1;
@@ -42,8 +42,8 @@ public class Game extends JFrame {
     private JLabel Sonuc;
     private final OyunSinifi Oyun = new OyunSinifi();
     private final Bilgisayar bilgisayar = Oyun.getBilgisayar();
-    JButton bKart;
-    JButton kKart;
+    private JButton bKart;
+    private JButton kKart;
     private int bSkor = bilgisayar.getSkor();
     private final Kullanici kullanici = Oyun.getKullanici();
     private int kSkor = kullanici.getSkor();
@@ -57,11 +57,12 @@ public class Game extends JFrame {
 
 
     Game() {
-        setup();
     }
 
-    private void setup() {
-        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    public void setup() {
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        setTitle("Kart Oyunu");
+        setContentPane(panelMain);
         int temp = Oyun.oyunuBaslat();
         if (temp == 1)
             System.exit(1);
@@ -94,6 +95,8 @@ public class Game extends JFrame {
         button18.setBorderPainted(false);
         button18.setContentAreaFilled(false);
         button18.setIcon(kart);
+        pack();
+        setVisible(true);
     }
 
     private void reset() {
